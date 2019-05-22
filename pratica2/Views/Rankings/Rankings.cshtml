@@ -1,4 +1,8 @@
-﻿<html>
+﻿
+@{
+    ViewBag.Title = "Rankings";
+}
+<html>
 <head runat="server">
     <link type="text/css" href="Content/master.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
@@ -15,10 +19,10 @@
                 <img src="imagens/QZ.png" width="37%">
             </a>
             <ul class="left hide-on-med-and-down">
-                <li><a href="home.html">Home</a></li>
-                <li class="active"><a href="rankings.html">Rankings</a></li>
-                <li><a href="jogar.html">Jogar</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="~/Views/Home/home.cshtml">Home</a></li>
+                <li class="active"><a href="~/Views/Rankings/Rankings.cshtml">Rankings</a></li>
+                <li><a href="~/Views/Jogar/Jogar.cshtml">Jogar</a></li>
+                <li><a href="~/Views/Sobre.cshtml">Sobre</a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
                 <li><a class="waves-effect waves-light btn" href="login.html" id="btnHead">Logar</a></li>
@@ -164,7 +168,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                @FelipeCarisio e @Johnssons4
+                Felipe Carisio e Johnssonss
                 <a class="grey-text text-lighten-4 right" href="#!"></a>
             </div>
         </div>

@@ -1,4 +1,8 @@
-﻿<html>
+﻿@{
+    ViewBag.Title = "cadastro";
+}
+
+<html>
 <head runat="server">
     <link type="text/css" href="Content/master.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
@@ -27,36 +31,61 @@
     </nav>
 
     <center>
-        <p id="tituloLogECadastro">Logar</p>
+        <p id="tituloLogECadastro">Cadastrar</p>
     </center>
 
-    <div id="login">
+    <center>
 
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="email" type="text" class="validate">
-                        <label for="email">E-mail</label>
+        <div id="cadastro">
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="primeiro_nome" type="text" class="validate" name="u.Nome" required>
+                            <label for="primeiro_nome">Primeiro nome</label>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="email" type="email" class="validate" name="u.Email" required>
+                            <label for="email">E-mail</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="confiEmail" type="email" class="validate" name="u.ConfEmail" required>
+                            <label for="confiEmail">Confirmar e-mail</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="senha" type="password" class="validate" name="u.Senha" required>
+                            <label for="senha">Senha</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="confiSenha" type="password" class="validate" name="u.ConfSenha" required>
+                            <label for="confiSenha">Confirmar senha</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <btn class="waves-effect waves-light btn" href="login.html" id="btnFimCadastro">Finalizar</btn>
+
         </div>
 
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="senha" type="password" class="validate">
-                        <label for="senha">Senha</label>
-                    </div>
-                </div>
-            </form>
-        </div>
+    </center>
 
-        <btn class="waves-effect waves-light btn" href="login.html" id="btnFimLogin">Logar</btn>
-
-    </div>
+    <br>
 
     <footer class="page-footer">
         <div class="container">
@@ -77,7 +106,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                @FelipeCarisio e @Johnssons4
+                Felipe Carisio e Johnssons
                 <a class="grey-text text-lighten-4 right" href="#!"></a>
             </div>
         </div>

@@ -1,4 +1,8 @@
-﻿<html>
+﻿@{
+    ViewBag.Title = "Jogar";
+}
+
+<html>
 <head runat="server">
     <link type="text/css" href="Content/master.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
@@ -14,8 +18,8 @@
                 <img src="imagens/QZ.png" width="37%">
             </a>
             <ul class="left hide-on-med-and-down">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="rankings.html">Rankings</a></li>
+                <li><a href="~/Views/Home/home.cshtml">Home</a></li>
+                <li><a href="~/Views/Rankings/Rankings.cshtml">Rankings</a></li>
                 <li class="active"><a href="jogar.html">Jogar</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
             </ul>
@@ -190,7 +194,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                @FelipeCarisio e @Johnssons4
+                Felipe Carisio e Johnssons
                 <a class="grey-text text-lighten-4 right" href="#!"></a>
             </div>
         </div>
