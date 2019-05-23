@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace pratica2.Controllers
 {
-    public class HomeController : Controller
+    public class SobreController : Controller
     {
+        // GET: Sobre
         public ActionResult Index()
         {
-            ViewBag.Title = "Home";
+            ViewBag.Title = "Sobre";
             return View();
         }
     }

@@ -11,6 +11,7 @@ namespace pratica2.Controllers
         // GET: Rankings
         public ActionResult Index()
         {
+            ViewBag.Title = "Ranking";
             return View();
         }
     }

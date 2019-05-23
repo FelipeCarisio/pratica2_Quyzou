@@ -1,43 +1,57 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link type="text/css" href="~/Content/master.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overlock&display=swap" rel="stylesheet">
+    <script src="~/Scripts/javasCriptPP2.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="home.html" class="brand-logo center">
+                <img src="~/imagens/QZ.png" width="37%">
+            </a>
+            <ul class="left hide-on-med-and-down">
+                <li><a href="~/Home/Index">Home</a></li>
+                <li><a href="~/Rankings/Index">Rankings</a></li>
+                <li><a href="~/Jogar/Index">Jogar</a></li>
+                <li><a href="~/Sobre/Index">Sobre</a></li>
+            </ul>
+
+            <ul class="right hide-on-med-and-down">
+                <li><a class="waves-effect waves-light btn" href="~/Login/Index" id="btnHead">Logar</a></li>
+                <li><a class="waves-effect waves-light btn" href="~/Cadastro/Index" id="btnHead">Cadastrar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   @RenderBody()
+    <footer class="page-footer">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                </ul>
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Quyzou</h5>
+                    <p class="grey-text text-lighten-4">Este lindo site de quizes sobre video-jogos <br> foi feito por Felipe Carisio e João Augusto.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Páginas</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="~/Home/Index">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="~/Rankings/Index">Rankings</a></li>
+                        <li><a class="grey-text text-lighten-3" href="~/Jogar/Index">Jogar</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Felipe Carisio e Johnssons
+                <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+        </div>
+    </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

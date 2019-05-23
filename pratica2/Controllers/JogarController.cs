@@ -11,6 +11,7 @@ namespace pratica2.Controllers
         // GET: Jogar
         public ActionResult Index()
         {
+            ViewBag.Title = "Jogar";
             return View();
         }
     }

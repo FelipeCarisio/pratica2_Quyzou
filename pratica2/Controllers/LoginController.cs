@@ -13,6 +13,7 @@ namespace pratica2.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            ViewBag.Title = "Login";
             return View();
         }
         public ActionResult Autentica(usuario u)

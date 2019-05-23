@@ -223,6 +223,7 @@
     <Compile Include="Controllers\JogarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RankingsController.cs" />
+    <Compile Include="Controllers\SobreController.cs" />
     <Compile Include="DAO\SiteContext.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -272,17 +273,13 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Cadastro\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Cadastro\cadastro.cshtml" />
-    <Content Include="Views\Home\home.cshtml" />
-    <Content Include="Views\Login\login.cshtml" />
-    <Content Include="Views\Jogar\Jogar.cshtml" />
-    <Content Include="Views\Rankings\Rankings.cshtml" />
-    <Content Include="Views\Sobre.cshtml" />
+    <Content Include="Views\Jogar\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Rankings\Index.cshtml" />
+    <Content Include="Views\Sobre\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

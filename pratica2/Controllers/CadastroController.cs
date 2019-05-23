@@ -13,6 +13,7 @@ namespace pratica2.Controllers
         // GET: Cadastro
         public ActionResult Index()
         {
+            ViewBag.Title = "Cadastro";
             return View();
         }
         public ActionResult Cadastrar(usuario u)
