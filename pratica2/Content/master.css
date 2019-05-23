@@ -8,8 +8,18 @@
 position: relative;
 left: 220px;
 top: 5px;
-height: 150px;
+height: 160px;
 width: 600px;
+margin: 1px;
+}
+
+#perguntaBtn {
+position: relative;
+left: 220px;
+top: 5px;
+height: 60px;
+width: 600px;
+margin: 1px;
 }
 
 p a {
@@ -121,7 +131,7 @@ margin-left: 430px;
 position: absolute;
 left: 450px;
 top: 65px;
-height: 1193px;
+height: 1393px;
 width: 1133px;
 background-color: lightcyan;
 }
@@ -159,7 +169,7 @@ background-color: lightcyan;
 #containerCardJogar {
 position: relative;
 width: 400px;
-height: 1700px;
+height: 1980px;
 left: 10px;
 background-color: lightcyan;
 }
