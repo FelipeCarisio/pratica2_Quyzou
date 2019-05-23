@@ -5,15 +5,15 @@
     <div class="card">
 
         <div class="card-image waves-effect waves-block waves-light">
-           <img class="activator" src="~/imagens/overIcon.jpg">
+            <img class="activator" src="~/imagens/overIcon.jpg">
         </div>
 
         <div class="card-content">
             <span class="card-title activator">Overwatch<i class="material-icons right">more_vert</i></span>
 
             <p>
-                <a href="modal1">Fazer quiz</a>
-                <a class="waves-effect waves-light btn modal-trigger" id="btnModalPergunta">Modal</a>
+                <a  href="#teste">Fazer quiz</a>
+                <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
             </p>
         </div>
 
@@ -33,8 +33,8 @@
         <div class="card-content">
             <span class="card-title activator">Rainbow six<i class="material-icons right">more_vert</i></span>
             <p>
-                <a href="~/Jogar/Index">Fazer quiz</a>
-                <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="modal1"><i class="material-icons">keyboard_arrow_right</i></a>
+                <a href="#teste">Fazer quiz</a>
+                <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
             </p>
         </div>
 
@@ -52,30 +52,48 @@
     <p id="tituloInfo">QUIZ</p>
     <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-    <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+    <div id="teste" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Pergunta</h4>
+            <p>1 - shfbshdbgshbgisbgbwguibgui?</p>
+            <input type="radio" name="resposta" />A<br />
+            <input type="radio" name="resposta" />B<br />
+            <input type="radio" name="resposta" />C<br />
+            <input type="radio" name="resposta" />D<br />
+
+            <p>2 - shfbshdbgshbgisbgbwguibgui?</p>
+            <input type="radio" name="resposta" />A<br />
+            <input type="radio" name="resposta" />B<br />
+            <input type="radio" name="resposta" />C<br />
+            <input type="radio" name="resposta" />D<br />
+
+            <p>3 - shfbshdbgshbgisbgbwguibgui?</p>
+            <input type="radio" name="resposta" />A<br />
+            <input type="radio" name="resposta" />B<br />
+            <input type="radio" name="resposta" />C<br />
+            <input type="radio" name="resposta" />D<br />
+
+            <p>4 - shfbshdbgshbgisbgbwguibgui?</p>
+            <input type="radio" name="resposta" />A<br />
+            <input type="radio" name="resposta" />B<br />
+            <input type="radio" name="resposta" />C<br />
+            <input type="radio" name="resposta" />D<br />
+        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-green btn-flat">Próxima</a>
+        </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
 
     @*<center>
-        <div id="perguntaBtn">
-            <btn class="waves-effect waves-light btn" href="login.html" id="btnFimLogin">Responder</btn>
-        </div>
-    </center>*@
+            <div id="perguntaBtn">
+                <btn class="waves-effect waves-light btn" href="login.html" id="btnFimLogin">Responder</btn>
+            </div>
+        </center>*@
 
 </div>
 
 <script>
-
-    $(document).ready(function() {
-        $("#btnModalPergunta").click(function () {
-            $("#modal1").modal();
-        });
+    $(document).ready(function () {
+        $('.modal').modal();
     });
-   
 </script>

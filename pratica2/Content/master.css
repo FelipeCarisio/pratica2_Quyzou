@@ -6111,14 +6111,15 @@ z-index: -1;
 
 .modal {
 display: none;
-position: fixed;
+position: absolute;
 left: 0;
 right: 0;
 background-color: #fafafa;
 padding: 0;
-max-height: 70%;
+max-height: 500px;
 width: 55%;
 margin: auto;
+margin-top: 200px;
 overflow-y: auto;
 border-radius: 2px;
 will-change: top, opacity;
@@ -6175,7 +6176,7 @@ will-change: opacity;
 
 .modal.modal-fixed-footer {
 padding: 0;
-height: 70%;
+height: 300px;
 }
 
 .modal.modal-fixed-footer .modal-content {
