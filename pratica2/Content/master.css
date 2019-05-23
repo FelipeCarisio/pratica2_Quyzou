@@ -14,11 +14,11 @@ margin: 1px;
 }
 
 #perguntaBtn {
-position: relative;
-left: 220px;
+position: center;
+left: 210px;
 top: 5px;
 height: 60px;
-width: 600px;
+width: 200px;
 margin: 1px;
 }
 
@@ -131,7 +131,7 @@ margin-left: 430px;
 position: absolute;
 left: 450px;
 top: 65px;
-height: 1393px;
+height: 200px;
 width: 1133px;
 background-color: lightcyan;
 }
@@ -169,7 +169,7 @@ background-color: lightcyan;
 #containerCardJogar {
 position: relative;
 width: 400px;
-height: 1980px;
+height: 900px;
 left: 10px;
 background-color: lightcyan;
 }
