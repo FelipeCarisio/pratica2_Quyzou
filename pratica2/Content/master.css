@@ -73,20 +73,16 @@ position: relative;
 font-family: 'Overlock', cursive;
 }
 
-#btnFimCadastro {
-float: right;
-}
-
 #btnFimLogin {
 float: left;
 }
 
 #cadastro {
 position: relative;
-left: 10px;
+left: 300px;
 top: 5px;
 height: 511px;
-width: 1500px;
+width: 1200px;
 border: 5px;
 }
 

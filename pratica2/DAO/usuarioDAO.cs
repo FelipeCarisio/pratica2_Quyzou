@@ -16,6 +16,14 @@ namespace pratica2.DAO
             }
         }
 
+        public static usuario BuscaEmail(string email)
+        {
+            using (var contexto = new SiteContext())
+            {
+                return contexto.Usuario.FirstOrDefault(u => u.Email == email);
+            }
+        }
+
         public static IList<usuario> Lista()
         {
             using (var contexto = new SiteContext())
@@ -45,6 +53,7 @@ namespace pratica2.DAO
             {
                 contexto.Usuario.Add(u);
                 contexto.SaveChanges();
+                
             }
         }
 

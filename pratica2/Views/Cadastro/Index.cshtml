@@ -3,7 +3,6 @@
     </center>
 
     <center>
-
         <form action="/Cadastro/Cadastrar" method="post">
             <div id="cadastro">
 
@@ -13,7 +12,7 @@
                             <div class="input-field col s6">
                                 <input id="primeiro_nome" type="text" class="validate" name="u.Nome" required>
                                 <label for="primeiro_nome">Primeiro nome</label>
-                                <span class="helper-text" data-error="wrong" data-success="right">Nome até 30 caracteres</span>
+                                <span class="helper-text" data-error="Errado" data-success="Correto">Nome até 30 caracteres</span>
                             </div>
                         </div>
                     </div>
@@ -25,11 +24,8 @@
                             <div class="input-field col s6">
                                 <input id="email" type="email" class="validate" name="u.Email" required>
                                 <label for="email">E-mail</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="confiEmail" type="email" class="validate" name="u.ConfEmail" required>
-                                <label for="confiEmail">Confirmar e-mail</label>
-                            </div>
+                                <span class="helper-text" data-error="Errado" data-success="Correto">E-mail no formato 'xxxxx@xxx.xxx'</span>
+                            </div>                         
                         </div>
                     </div>
                 </div>
@@ -40,21 +36,13 @@
                             <div class="input-field col s6">
                                 <input id="senha" type="password" class="validate" name="u.Senha" required>
                                 <label for="senha">Senha</label>
-                                <span class="helper-text" data-error="wrong" data-success="right">Senha até 20 caracteres</span>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="confiSenha" type="password" class="validate" name="u.ConfSenha" required>
-                                <label for="confiSenha">Confirmar senha</label>
+                                <span class="helper-text" data-error="Errado" data-success="Correto">Senha até 20 caracteres</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <button type="submit" class="waves-effect waves-light btn" href="login.html" id="btnFimCadastro">Finalizar</button>
-
+                <button type="submit" class="waves-effect waves-light btn" href="login.html" id="btnFimLogin">Finalizar</button>
             </div>
           </form>
-
     </center>
-
     <br>

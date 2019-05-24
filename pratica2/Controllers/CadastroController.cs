@@ -22,9 +22,18 @@ namespace pratica2.Controllers
             {
                 u.Pontos = default(int);
 
-                usuarioDAO.Adicionar(u);
-                Session["usuarioLogado"] = u;
-                return RedirectToAction("Index", "Home");
+                usuario usu = u;
+
+                if (usuarioDAO.BuscaEmail(usu.Email) == null)
+                {
+                    usuarioDAO.Adicionar(u);
+                    Session["usuarioLogado"] = u;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                { 
+                    return RedirectToAction("Index");
+                }
             }
             else
                 return RedirectToAction("Index");
