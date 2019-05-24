@@ -2,34 +2,57 @@
     <p id="tituloLogECadastro">Logar</p>
 </center>
 
-<form action="/Login/Autentica" method="post">
+@{
+    if (Session["usuarioLogado"] == null)
+    {
+        <form action="/Login/Autentica" method="post">
 
-    <div id="login">
+            <div id="login">
 
-        <div class="row">
-            <div class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input id="email" type="email" class="validate" required>
-                        <label for="email">E-mail</label>
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="nome" type="text" class="validate" name="u.Nome" required>
+                                <label for="nome">Nome</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input id="senha" type="password" class="validate" required>
-                        <label for="senha">Senha</label>
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="senha" type="password" name="u.Senha" class="validate" required>
+                                <label for="senha">Senha</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <button class="waves-effect waves-light btn" href="login.html" type="submit" id="btnFimLogin">Logar</button>
+
             </div>
-        </div>
 
-        <button class="waves-effect waves-light btn" href="login.html" type="submit" id="btnFimLogin">Logar</button>
-
-    </div>
-
-</form>
+        </form>
+    }
+    else
+    {
+        <center>
+            <div id="containerLogoff" class="container">
+                <form action="/Login/Desloga" method="post">
+                    <div class="row">
+                        <div class="col s12">
+                            <p id="subTituloLogECadastro">Deseja fazer logoff?</p>
+                            <br />
+                            <div class="input-field inline">
+                                <button class="waves-effect waves-light btn" href="login.html" type="submit" id="btnFimLogin">Logoff</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </center>
+    }
+}

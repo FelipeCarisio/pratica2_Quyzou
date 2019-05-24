@@ -29,5 +29,11 @@ namespace pratica2.Controllers
             else
                 return RedirectToAction("Index");
         }
+
+        public ActionResult Desloga()
+        {
+            Session["usuarioLogado"] = null;
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

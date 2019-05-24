@@ -4,6 +4,10 @@
 * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
 */
 
+#containerLogoff{
+    height: 27.44em
+}
+
 #pergunta {
 position: relative;
 left: 220px;
@@ -33,6 +37,13 @@ color: #0000FF !important;
 
 #tituloLogECadastro {
 font-size: 35px;
+color: black;
+position: relative;
+font-family: 'Overlock', cursive;
+}
+
+#subTituloLogECadastro {
+font-size: 30px;
 color: black;
 position: relative;
 font-family: 'Overlock', cursive;
