@@ -31,6 +31,7 @@ namespace pratica2.DAO
                 return contexto.Usuario.ToList();
             }
         }
+
         public static usuario returnUsuario(string s)
         {
             using (var contexto = new SiteContext())

@@ -1,4 +1,10 @@
-﻿<div id="containerCardRank">
+﻿@{ 
+    IList<pratica2.Models.usuario> u = pratica2.DAO.usuarioDAO.Lista();
+    
+    u = u.OrderByDescending(usu => usu.Pontos).ToList();
+}
+
+<div id="containerCardRank">
 
     <p id="tituloCard">Jogos</p>
 
@@ -56,6 +62,41 @@
     <p id="tituloInfo">Rankings</p>
     <p id="subTituloRank">Pontuação nos dois jogos</p>
 
+    @{ 
+        pratica2.Models.usuario[] vetorUsu = new pratica2.Models.usuario[10];
+
+        int i = 0;
+        int qtsDados = 0;
+
+        foreach(pratica2.Models.usuario usu in u)
+        {
+            vetorUsu[i] = usu;
+            qtsDados++;
+
+            i++;
+
+            if (i > 9)
+            {
+                break;
+            }
+        }
+
+        if(qtsDados != 10)
+        {
+            for(int a = 0; a < vetorUsu.Length; a++)
+            {
+                if(vetorUsu[a] == null)
+                {
+                    pratica2.Models.usuario usu = new pratica2.Models.usuario();
+
+                    usu.Nome = "Sem jogador";
+                    usu.Pontos = 0;
+
+                    vetorUsu[a] = usu;
+                }
+            }
+        }
+    }
     <table>
         <tr>
             <td>Posição</td>
@@ -64,53 +105,53 @@
         </tr>
         <tr>
             <td>1</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[0].Nome</td>
+            <td>@vetorUsu[0].Pontos</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[1].Nome</td>
+            <td>@vetorUsu[1].Pontos</td>
         </tr>
         <tr>
             <td>3</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[2].Nome</td>
+            <td>@vetorUsu[2].Pontos</td>
         </tr>
         <tr>
             <td>4</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[3].Nome</td>
+            <td>@vetorUsu[3].Pontos</td>
         </tr>
         <tr>
             <td>5</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[4].Nome</td>
+            <td>@vetorUsu[4].Pontos</td>
         </tr>
         <tr>
             <td>6</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[5].Nome</td>
+            <td>@vetorUsu[5].Pontos</td>
         </tr>
         <tr>
             <td>7</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[6].Nome</td>
+            <td>@vetorUsu[6].Pontos</td>
         </tr>
         <tr>
             <td>8</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[7].Nome</td>
+            <td>@vetorUsu[7].Pontos</td>
         </tr>
         <tr>
             <td>9</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[8].Nome</td>
+            <td>@vetorUsu[8].Pontos</td>
         </tr>
         <tr>
             <td>10</td>
-            <td>Jogador</td>
-            <td>Pontos</td>
+            <td>@vetorUsu[9].Nome</td>
+            <td>@vetorUsu[9].Pontos</td>
         </tr>
     </table>
 </div>
