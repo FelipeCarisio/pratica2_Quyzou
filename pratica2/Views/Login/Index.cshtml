@@ -5,6 +5,10 @@
 @{
     if (Session["usuarioLogado"] == null)
     {
+        <center>
+            <p id="subTituloLogECadastro">Se você continuar nessa página o login não foi realizado</p>
+        </center>
+        
         <form action="/Login/Autentica" method="post">
 
             <div id="login">
@@ -45,7 +49,7 @@
                     <div class="row">
                         <div class="col s12">
                             <p id="subTituloLogECadastro">Deseja fazer logoff?</p>
-                            <br/>
+                            <br />
                             <div class="input-field inline">
                                 <button class="waves-effect waves-light btn" href="login.html" type="submit" id="btnFimLogin">Logoff</button>
                             </div>
