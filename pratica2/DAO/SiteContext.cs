@@ -9,9 +9,9 @@ namespace pratica2.DAO
 {
     public class SiteContext : DbContext
     {
-        public DbSet<usuario> Usuario2 { get; set; }
+        public DbSet<usuario> Usuario { get; set; }
 
-        protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=regulus.cotuca.unicamp.br;Initial Catalog=BD18185; User ID=BD18185; Password=1223302017fod");
         }

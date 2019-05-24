@@ -12,7 +12,30 @@ namespace pratica2.DAO
         {
             using (var contexto = new SiteContext())
             {
-                return contexto.Usuario2.FirstOrDefault(u => u.Nome == login && u.Senha == senha);
+                return contexto.Usuario.FirstOrDefault(u => u.Nome == login && u.Senha == senha);
+            }
+        }
+
+        public static IList<usuario> Lista()
+        {
+            using (var contexto = new SiteContext())
+            {
+                return contexto.Usuario.ToList();
+            }
+        }
+        public static usuario returnUsuario(string s)
+        {
+            using (var contexto = new SiteContext())
+            {
+                return contexto.Usuario.FirstOrDefault(u => u.Nome == s);
+            }
+        }
+
+        public static usuario returnUsuario(int id)
+        {
+            using (var contexto = new SiteContext())
+            {
+                return contexto.Usuario.FirstOrDefault(u => u.Id == id);
             }
         }
 
@@ -20,7 +43,16 @@ namespace pratica2.DAO
         {
             using (var contexto = new SiteContext())
             {
-                contexto.Usuario2.Add(u);
+                contexto.Usuario.Add(u);
+                contexto.SaveChanges();
+            }
+        }
+
+        public static void Alterar(usuario u)
+        {
+            using (var contexto = new SiteContext())
+            {
+                contexto.Usuario.Update(u);
                 contexto.SaveChanges();
             }
         }

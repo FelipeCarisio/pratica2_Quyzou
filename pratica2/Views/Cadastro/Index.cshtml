@@ -4,52 +4,54 @@
 
     <center>
 
-        <div id="cadastro">
+        <form action="/Cadastro/Cadastrar" method="post">
+            <div id="cadastro">
 
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="primeiro_nome" type="text" class="validate" name="u.Nome" required>
-                            <label for="primeiro_nome">Primeiro nome</label>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="primeiro_nome" type="text" class="validate" name="u.Nome" required>
+                                <label for="primeiro_nome">Primeiro nome</label>
+                            </div>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
 
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="email" type="email" class="validate" name="u.Email" required>
-                            <label for="email">E-mail</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="confiEmail" type="email" class="validate" name="u.ConfEmail" required>
-                            <label for="confiEmail">Confirmar e-mail</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="senha" type="password" class="validate" name="u.Senha" required>
-                            <label for="senha">Senha</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="confiSenha" type="password" class="validate" name="u.ConfSenha" required>
-                            <label for="confiSenha">Confirmar senha</label>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="email" type="email" class="validate" name="u.Email" required>
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="confiEmail" type="email" class="validate" name="u.ConfEmail" required>
+                                <label for="confiEmail">Confirmar e-mail</label>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="senha" type="password" class="validate" name="u.Senha" required>
+                                <label for="senha">Senha</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="confiSenha" type="password" class="validate" name="u.ConfSenha" required>
+                                <label for="confiSenha">Confirmar senha</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="waves-effect waves-light btn" href="login.html" id="btnFimCadastro">Finalizar</button>
+
             </div>
-
-            <btn class="waves-effect waves-light btn" href="login.html" id="btnFimCadastro">Finalizar</btn>
-
-        </div>
+          </form>
 
     </center>
 

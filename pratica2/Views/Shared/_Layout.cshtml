@@ -22,10 +22,30 @@
                 <li><a href="~/Sobre/Index">Sobre</a></li>
             </ul>
 
-            <ul class="right hide-on-med-and-down">
-                <li><a class="waves-effect waves-light btn" href="~/Login/Index" id="btnHead">Logar</a></li>
-                <li><a class="waves-effect waves-light btn" href="~/Cadastro/Index" id="btnHead">Cadastrar</a></li>
-            </ul>
+            @{
+                if (Session["usuarioLogado"] == null)
+                {
+                    <ul class="right hide-on-med-and-down">
+                        <li><a class="waves-effect waves-light btn" href="~/Login/Index" id="btnHead">Logar</a></li>
+                        <li><a class="waves-effect waves-light btn" href="~/Cadastro/Index" id="btnHead">Cadastrar</a></li>
+                    </ul>
+                }
+
+                if (Session["usuarioLogado"] != null)
+                {
+                    pratica2.Models.usuario u = (pratica2.Models.usuario)Session["usuarioLogado"];
+
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <p>Olá @u.Nome</p>
+                        </li>
+                        <li>
+                            <li><a class="waves-effect waves-light btn" href="~/Cadastro/Index" id="btnHead">Logoff</a>
+                        </li>
+                    </ul>
+                }
+             }
+
         </div>
     </nav>
 
