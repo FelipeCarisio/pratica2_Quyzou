@@ -224,6 +224,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RankingsController.cs" />
     <Compile Include="Controllers\SobreController.cs" />
+    <Compile Include="DAO\quizDAO.cs" />
     <Compile Include="DAO\SiteContext.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
