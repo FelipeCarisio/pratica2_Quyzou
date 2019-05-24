@@ -43,11 +43,15 @@
     }
     else
     {
+        @{ 
+            pratica2.Models.usuario usu = (pratica2.Models.usuario)Session["usuarioLogado"];
+        }
         <center>
             <div id="containerLogoff" class="container">
                 <form action="/Login/Desloga" method="post">
                     <div class="row">
                         <div class="col s12">
+                            <p id="subTituloLogECadastro">Você tem @usu.Pontos pontos atualmente.</p>
                             <p id="subTituloLogECadastro">Deseja fazer logoff?</p>
                             <br />
                             <div class="input-field inline">
