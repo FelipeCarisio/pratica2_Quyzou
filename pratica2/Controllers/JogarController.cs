@@ -14,5 +14,20 @@ namespace pratica2.Controllers
             ViewBag.Title = "Jogar";
             return View();
         }
+
+        public ActionResult Pontuar(int pontos)
+        {             
+            pratica2.Models.usuario usu = new pratica2.Models.usuario();
+
+            usu = (pratica2.Models.usuario)Session["usuarioLogado"];
+
+            usu.Pontos += pontos;
+
+            ((pratica2.Models.usuario)Session["usuarioLogado"]).Pontos = usu.Pontos;
+
+            pratica2.DAO.usuarioDAO.Alterar(usu);
+
+            return RedirectToAction("Index", "Jogar");
+        }
     }
 }

@@ -1,156 +1,181 @@
-﻿<div id="containerCardJogar">
+﻿@{
+    if (Session["usuarioLogado"] != null)
+    {
+        <div id="containerCardJogar">
 
-    <p id="tituloCard">Jogos</p>
+            <p id="tituloCard">Jogos</p>
 
-    <div class="card">
+            <div class="card">
 
-        <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="~/imagens/overIcon.jpg">
-        </div>
-
-        <div class="card-content">
-            <span class="card-title activator">Overwatch<i class="material-icons right">more_vert</i></span>
-
-            <p>
-                <a  href="#teste">Fazer quiz</a>
-                <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
-            </p>
-        </div>
-
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Sobre o jogo:<i class="material-icons right">close</i></span>
-            <p>Mais um jogo da gigante Blizzard. Este fps 6x6 ganhador do GOTY é baseado em personagens com aparências e habilidades únicas, qual o seu favorito?</p>
-        </div>
-
-    </div>
-
-    <div class="card">
-
-        <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="~/imagens/r6Icon.jpg">
-        </div>
-
-        <div class="card-content">
-            <span class="card-title activator">Rainbow six<i class="material-icons right">more_vert</i></span>
-            <p>
-                <a href="#teste">Fazer quiz</a>
-                <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
-            </p>
-        </div>
-
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Sobre o jogo:<i class="material-icons right">close</i></span>
-            <p>Este fps é mais um jogo da Ubisoft. O fps mais tático já feito na história é baseado em personbagens de diferentes polícias de diferentes países. Escolha o seu e vá para a batalha.</p>
-        </div>
-
-    </div>
-
-</div>
-
-<div id="containerJogar">
-
-    <p id="tituloInfo">QUIZ</p>
-    <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
-
-    <div id="teste" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            <h4>Pergunta</h4>
-
-        @{
-            IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.Lista();
-
-            IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
-
-            pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
-
-            int[] sorteados = new int[10];
-
-            string[] corretas = new string[10];
-
-            int i = 0;
-
-            foreach (pratica2.Models.pergunta perg in p)
-            {
-                pergUsu[i] = perg;
-
-                i++;
-
-                if (i > 49)
-                {
-                    break;
-                }
-            }
-
-            Random sorteio = new Random();
-
-            int qts = 0;
-
-            while(qts < 10)
-            {
-                int sorteado = sorteio.Next(24);
-
-                if (!sorteados.Contains(sorteado))
-                {
-
-                    sorteados[qts] = sorteado;
-
-                    qts++;
-
-                    pratica2.Models.pergunta perg = pergUsu[sorteado];
-
-                    pratica2.Models.resposta resp = new pratica2.Models.resposta();
-
-                    resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
-
-                    corretas[qts - 1] = resp.Correta;
-
-                    <p>@qts  - @perg.Texto</p>
-
-                    <input type="radio" id="@qts" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
-                    <input type="radio" id="@qts" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
-                    <input type="radio" id="@qts" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
-                    <input type="radio" id="@qts" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
-                }
-            }
-        }
-
-        </div>
-        <div class="modal-footer">
-            <a class="waves-effect waves-green btn-flat">Próxima</a>
-            <center>
-
-                <div id="perguntaBtn">
-                    <btn class="waves-effect waves-light btn" href="login.html" id="btnFimLogin" onclick="somar()">Responder</btn>
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="~/imagens/overIcon.jpg">
                 </div>
-            </center>
+
+                <div class="card-content">
+                    <span class="card-title activator">Overwatch<i class="material-icons right">more_vert</i></span>
+
+                    <p>
+                        <a href="#teste">Fazer quiz</a>
+                        <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
+                    </p>
+                </div>
+
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Sobre o jogo:<i class="material-icons right">close</i></span>
+                    <p>Mais um jogo da gigante Blizzard. Este fps 6x6 ganhador do GOTY é baseado em personagens com aparências e habilidades únicas, qual o seu favorito?</p>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="~/imagens/r6Icon.jpg">
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title activator">Rainbow six<i class="material-icons right">more_vert</i></span>
+                    <p>
+                        <a href="#teste">Fazer quiz</a>
+                        <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
+                    </p>
+                </div>
+
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Sobre o jogo:<i class="material-icons right">close</i></span>
+                    <p>Este fps é mais um jogo da Ubisoft. O fps mais tático já feito na história é baseado em personbagens de diferentes polícias de diferentes países. Escolha o seu e vá para a batalha.</p>
+                </div>
+
+            </div>
+
         </div>
-        </div>
 
-    </div>
+        <div id="containerJogar">
 
-    <script>
+            <p id="tituloInfo">QUIZ</p>
+            <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-        $(document).ready(function () {
-            $('.modal').modal();
-        });
+            <form id="frmPonto" action="~/Jogar/Pontuar">
+            <div id="teste" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <h4>Pergunta</h4>
 
-        function somar()
-        {
-            for (var a = 0; a < 10; a++)
-            {
-                var escolhido = document.getElementByName((a + 1).toString()).checked = true;
+                    @{
+                        IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.Lista();
 
-                @{ 
-                    for (int a = 0; a < 10; a++)
-                    {
-                        pratica2.Models.resposta rep = new pratica2.Models.resposta();
+                        IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
 
-                        rep = pratica2.DAO.respostaDAO.returnReposta(sorteados[a]);
+                        pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
 
-                        string certa = rep.Correta;
+                        int[] sorteados = new int[10];
+
+                        string[] corretas = new string[10];
+
+                        string respostas = "";
+
+                        pratica2.Models.resposta[] resps = new pratica2.Models.resposta[10];
+
+                        int i = 0;
+
+                        foreach (pratica2.Models.pergunta perg in p)
+                        {
+                            pergUsu[i] = perg;
+
+                            i++;
+
+                            if (i > 49)
+                            {
+                                break;
+                            }
+                        }
+
+                        Random sorteio = new Random();
+
+                        int qts = 0;
+
+                        while (qts < 10)
+                        {
+                            int sorteado = sorteio.Next(24);
+
+                            if (!sorteados.Contains(sorteado))
+                            {
+
+                                sorteados[qts] = sorteado;
+
+                                qts++;
+
+                                pratica2.Models.pergunta perg = pergUsu[sorteado];
+
+                                pratica2.Models.resposta resp = new pratica2.Models.resposta();
+
+                                resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
+
+                                resps[qts - 1] = resp;
+
+                                corretas[qts - 1] = resp.Correta;
+
+                                respostas += resp.Correta + " ";
+
+                                <p>@qts  - @perg.Texto</p>
+
+                                <input type="radio" id="A_@(qts-1)" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
+                                <input type="radio" id="B_@(qts-1)" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
+                                <input type="radio" id="C_@(qts-1)" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
+                                <input type="radio" id="D_@(qts-1)" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+                            }
+                        }
                     }
-                }
-            }
-        }
+                      
+                </div>
+                <div class="modal-footer">
+                    <a class="waves-effect waves-green btn-flat">Próxima</a>
+                    <center>
 
-    </script>
+                        <div id="perguntaBtn">
+                            <button type="submit" class="waves-effect waves-light btn" id="btnFimLogin" data-resposta="@respostas">Responder</button>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <script>
+            var soma = 4;
+            $(document).ready(function () {
+                $('.modal').modal();
+
+                
+                $("#frmPonto").submit((e) => {
+                    $.post("~/Jogar/Pontuar/?pontos" + soma, null, null);
+                });
+            }); 
+        </script>
+    }
+    else
+    {
+        <center>
+            <p id="tituloLogECadastro">Faça login antes de jogar</p>
+        </center>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    }
+}
