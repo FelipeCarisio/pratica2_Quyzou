@@ -138,9 +138,18 @@
         {
             for (var a = 0; a < 10; a++)
             {
-                var escolhido = document.getElementById(a + 1).checked = true;
+                var escolhido = document.getElementByName((a + 1).toString()).checked = true;
 
+                @{ 
+                    for (int a = 0; a < 10; a++)
+                    {
+                        pratica2.Models.resposta rep = new pratica2.Models.resposta();
 
+                        rep = pratica2.DAO.respostaDAO.returnReposta(sorteados[a]);
+
+                        string certa = rep.Correta;
+                    }
+                }
             }
         }
 
