@@ -224,13 +224,16 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RankingsController.cs" />
     <Compile Include="Controllers\SobreController.cs" />
-    <Compile Include="DAO\quizDAO.cs" />
+    <Compile Include="DAO\perguntaDAO.cs" />
+    <Compile Include="DAO\respostaDAO.cs" />
     <Compile Include="DAO\SiteContext.cs" />
     <Compile Include="DAO\usuarioDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\jogo.cs" />
+    <Compile Include="Models\pergunta.cs" />
+    <Compile Include="Models\resposta.cs" />
     <Compile Include="Models\usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

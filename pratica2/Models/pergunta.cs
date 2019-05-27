@@ -5,10 +5,12 @@ using System.Web;
 
 namespace pratica2.Models
 {
-    public class jogo
+    public class pergunta
     {
-        public string Nome { get; set; }
-
         public int Id { get; set; }
+
+        public string Texto { get; set; }
+
+        public string JogoNome { get; set; }
     }
 }
