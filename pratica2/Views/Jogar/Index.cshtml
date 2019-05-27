@@ -56,80 +56,92 @@
         <div class="modal-content">
             <h4>Pergunta</h4>
 
-            @{
-        IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.Lista();
+        @{
+            IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.Lista();
 
-        p = p.OrderByDescending(perg => perg.Id).ToList();
+            IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
 
-        IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
+            pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
 
-        r = r.OrderByDescending(resp => resp.Id).ToList();
+            int[] sorteados = new int[10];
 
-        pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
+            string[] corretas = new string[10];
 
-        int[] sorteados = new int[10];
+            int i = 0;
 
-        int i = 0;
-
-        foreach (pratica2.Models.pergunta perg in p)
-        {
-            pergUsu[i] = perg;
-
-            i++;
-
-            if (i > 49)
+            foreach (pratica2.Models.pergunta perg in p)
             {
-                break;
+                pergUsu[i] = perg;
+
+                i++;
+
+                if (i > 49)
+                {
+                    break;
+                }
+            }
+
+            Random sorteio = new Random();
+
+            int qts = 0;
+
+            while(qts < 10)
+            {
+                int sorteado = sorteio.Next(24);
+
+                if (!sorteados.Contains(sorteado))
+                {
+
+                    sorteados[qts] = sorteado;
+
+                    qts++;
+
+                    pratica2.Models.pergunta perg = pergUsu[sorteado];
+
+                    pratica2.Models.resposta resp = new pratica2.Models.resposta();
+
+                    resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
+
+                    corretas[qts - 1] = resp.Correta;
+
+                    <p>@qts  - @perg.Texto</p>
+
+                    <input type="radio" id="@qts" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
+                    <input type="radio" id="@qts" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
+                    <input type="radio" id="@qts" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
+                    <input type="radio" id="@qts" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+                }
             }
         }
 
-        Random sorteio = new Random();
-
-        for (int a = 0; a < 10; a++)
-        {
-            if (!sorteados.Contains(sorteio.Next(49)))
-            {
-                sorteados[a] = sorteio.Next(49);
-
-                pratica2.Models.pergunta perg = pergUsu[sorteio.Next(49)];
-
-                pratica2.Models.resposta resp = new pratica2.Models.resposta();
-
-                resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
-
-                <p>@(a + 1) - @perg.Texto</p>
-
-                <input type="radio" name="@(a+1)  reposta" value="oioioi">@resp.OpcaoA<br>
-                <input type="radio" name="@(a+1)  reposta" value="oioioi">@resp.OpcaoB<br>
-                <input type="radio" name="@(a+1)  reposta" value="oioioi">@resp.OpcaoC<br>
-                <input type="radio" name="@(a+1)  reposta" value="oioioi">@resp.OpcaoD<br>
-    }
-}
-            }
-
-            <p>1 - shfbshdbgshbgisbgbwguibgui?</p>
-            <input type="radio" name="resposta" />A<br />
-            <input type="radio" name="resposta" />B<br />
-            <input type="radio" name="resposta" />C<br />
-            <input type="radio" name="resposta" />D<br />
-
         </div>
-            <div class="modal-footer">
-                <a class="waves-effect waves-green btn-flat">Próxima</a>
-            </div>
-        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-green btn-flat">Próxima</a>
+            <center>
 
-        @*<center>
                 <div id="perguntaBtn">
-                    <btn class="waves-effect waves-light btn" href="login.html" id="btnFimLogin">Responder</btn>
+                    <btn class="waves-effect waves-light btn" href="login.html" id="btnFimLogin" onclick="somar()">Responder</btn>
                 </div>
             </center>
-        *@
+        </div>
+        </div>
 
     </div>
 
     <script>
+
         $(document).ready(function () {
             $('.modal').modal();
         });
+
+        function somar()
+        {
+            for (var a = 0; a < 10; a++)
+            {
+                var escolhido = document.getElementById(a + 1).checked = true;
+
+
+            }
+        }
+
     </script>
