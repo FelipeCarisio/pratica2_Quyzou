@@ -55,7 +55,7 @@
             <p id="tituloInfo">QUIZ</p>
             <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-            <form id="frmPonto" action="~/Jogar/Pontuar">
+            <form id="frmPonto" action="/Jogar/Pontuar" method="post">
             <div id="teste" class="modal modal-fixed-footer">
                 <div class="modal-content">
                     <h4>Pergunta</h4>
@@ -141,15 +141,12 @@
         </div>
 
         <script>
-            var soma = 4;
+            var soma = 0;
             $(document).ready(function () {
                 $('.modal').modal();
-
-                
-                $("#frmPonto").submit((e) => {
-                    $.post("~/Jogar/Pontuar/?pontos=" + soma, null, null);
-                });
             }); 
+           
+           var respotas = {@corretas[0], @corretas[1], @corretas[2], @corretas[3], @corretas[4], @corretas[5], @corretas[6], @corretas[7], @corretas[8], @corretas[9], @corretas[10] }
         </script>
     }
     else
