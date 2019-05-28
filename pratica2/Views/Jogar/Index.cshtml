@@ -55,7 +55,7 @@
             <p id="tituloInfo">QUIZ</p>
             <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-            <form id="frmPonto" action="/Jogar/Pontuar" method="post">
+            
             <div id="teste" class="modal modal-fixed-footer">
                 <div class="modal-content">
                     <h4>Pergunta</h4>
@@ -118,10 +118,10 @@
 
                                 <p>@qts  - @perg.Texto</p>
 
-                                <input type="radio" id="A_@(qts-1)" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
-                                <input type="radio" id="B_@(qts-1)" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
-                                <input type="radio" id="C_@(qts-1)" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
-                                <input type="radio" id="D_@(qts-1)" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+                                <input type="radio" id="A_@(qts - 1)" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
+                                <input type="radio" id="B_@(qts - 1)" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
+                                <input type="radio" id="C_@(qts - 1)" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
+                                <input type="radio" id="D_@(qts - 1)" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
                             }
                         }
                     }
@@ -130,23 +130,63 @@
                 <div class="modal-footer">
                     <a class="waves-effect waves-green btn-flat">Próxima</a>
                     <center>
-
                         <div id="perguntaBtn">
-                            <button type="submit" class="waves-effect waves-light btn" id="btnFimLogin" data-resposta="@respostas">Responder</button>
+                            <button type="submit" class="waves-effect waves-light btn" onclick="somar()" id="btnFimLogin">Responder</button>
                         </div>
                     </center>
                 </div>
             </div>
-            </form>
         </div>
 
         <script>
+
             var soma = 0;
+
             $(document).ready(function () {
-                $('.modal').modal();
-            }); 
-           
-           var respotas = {@corretas[0], @corretas[1], @corretas[2], @corretas[3], @corretas[4], @corretas[5], @corretas[6], @corretas[7], @corretas[8], @corretas[9], @corretas[10] }
+                $('.modal').modal();           
+            });
+
+            function somar()
+            {
+                for (var a = 0; a < 10; a++)
+                {
+                    if (document.getElementById("A_" + a).checked == true)
+                    {
+                        if (reapostas[a] == "A")
+                            soma++;
+                    }
+                }
+
+                for (var a = 0; a < 10; a++)
+                {
+                    if (document.getElementById("B_" + a).checked == true)
+                    {
+                        if (respostas[a] == "B")
+                            soma++;
+                    }
+                }
+
+                for (var a = 0; a < 10; a++)
+                {
+                    if (document.getElementById("C_" + a).checked == true)
+                    {
+                        if (respostas[a] == "C")
+                            soma++;
+                    }
+                }
+
+                for (var a = 0; a < 10; a++)
+                {
+                    if (document.getElementById("D_" + a).checked == true)
+                    {
+                        if (respostas[a] == "D")
+                            soma++;
+                    }
+                }
+
+                 @ViewBag.Pontos = soma;
+            }
+
         </script>
     }
     else

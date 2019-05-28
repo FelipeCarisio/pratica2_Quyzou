@@ -15,19 +15,19 @@ namespace pratica2.Controllers
             return View();
         }
 
-        public ActionResult Pontuar(int pontos)
-        {             
+        public ActionResult Pontuar()
+        {              
             pratica2.Models.usuario usu = new pratica2.Models.usuario();
 
             usu = (pratica2.Models.usuario)Session["usuarioLogado"];
 
-            usu.Pontos += pontos;
+            usu.Pontos += ViewBag.Pontos;
 
             ((pratica2.Models.usuario)Session["usuarioLogado"]).Pontos = usu.Pontos;
 
             pratica2.DAO.usuarioDAO.Alterar(usu);
 
-            return RedirectToAction("Index", "Jogar");
+            return RedirectToAction("Index", "Login");
         }
     }
 }
