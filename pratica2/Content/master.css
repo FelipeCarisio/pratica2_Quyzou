@@ -50,6 +50,13 @@ position: relative;
 font-family: 'Overlock', cursive;
 }
 
+#tituloJogar {
+font-size: 35px;
+color: darkgray;
+position: relative;
+font-family: 'Overlock', cursive;
+}
+
 #subTituloLogECadastro {
 font-size: 30px;
 color: black;
