@@ -15,13 +15,13 @@ namespace pratica2.Controllers
             return View();
         }
 
-        public ActionResult Pontuar()
+        public ActionResult Pontuar(int pontos)
         {              
             pratica2.Models.usuario usu = new pratica2.Models.usuario();
 
             usu = (pratica2.Models.usuario)Session["usuarioLogado"];
 
-            usu.Pontos += ViewBag.Pontos;
+            usu.Pontos += pontos;
 
             ((pratica2.Models.usuario)Session["usuarioLogado"]).Pontos = usu.Pontos;
 

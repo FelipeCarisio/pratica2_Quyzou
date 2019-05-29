@@ -26,6 +26,7 @@ margin: 1px;
 
 #perguntaBtn {
 position: center;
+float: right !important;
 left: 210px;
 top: 5px;
 height: 60px;
