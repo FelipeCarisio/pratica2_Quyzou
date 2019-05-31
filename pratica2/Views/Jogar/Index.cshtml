@@ -4,6 +4,10 @@
 
         int soma = 0;
 
+        Random pontos = new Random();
+
+        int pontosA = pontos.Next(9);
+
         <div id="containerCardJogar">
 
             <p id="tituloCard">Jogos</p>
@@ -58,7 +62,7 @@
             <p id="tituloInfo">QUIZ</p>
             <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-            <form method="post" action="/Jogar/Pontuar?pontos=@soma">
+            <form method="post" action="/Jogar/Pontuar?pontos=@pontosA">
 
                 <div id="teste" class="modal modal-fixed-footer">
                     <div class="modal-content">
