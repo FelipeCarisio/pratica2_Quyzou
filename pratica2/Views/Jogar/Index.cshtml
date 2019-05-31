@@ -1,12 +1,9 @@
 ﻿@{
     if (Session["usuarioLogado"] != null)
     {
-
-        int soma = 0;
-
         Random pontos = new Random();
 
-        int pontosA = pontos.Next(9);
+        int pontosA = pontos.Next(10);
 
         <div id="containerCardJogar">
 
@@ -22,8 +19,8 @@
                     <span class="card-title activator">Overwatch<i class="material-icons right">more_vert</i></span>
 
                     <p>
-                        <a class="modal-trigger" href="#teste">Fazer quiz</a>
-                        <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
+                        <a class="modal-trigger" href="#testeOver">Fazer quiz</a>
+                        <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#testeOver"><i class="material-icons">keyboard_arrow_right</i></a>
                     </p>
                 </div>
 
@@ -43,8 +40,8 @@
                 <div class="card-content">
                     <span class="card-title activator">Rainbow six<i class="material-icons right">more_vert</i></span>
                     <p>
-                        <a class="modal-trigger" href="#teste">Fazer quiz</a>
-                        <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#teste"><i class="material-icons">keyboard_arrow_right</i></a>
+                        <a class="modal-trigger" href="#testeR6">Fazer quiz</a>
+                        <a class="btn-floating waves-effect waves-light blue light blue btn-small pulse modal-trigger" href="#testeR6"><i class="material-icons">keyboard_arrow_right</i></a>
                     </p>
                 </div>
 
@@ -62,73 +59,150 @@
             <p id="tituloInfo">QUIZ</p>
             <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-            <form method="post" action="/Jogar/Pontuar?pontos=@pontosA">
+            <form method="post" action="/Jogar/Pontuar?pontos=@soma">
 
-                <div id="teste" class="modal modal-fixed-footer">
+                <div id="testeOver" class="modal modal-fixed-footer">
                     <div class="modal-content">
                         <h4>Pergunta</h4>
 
-                @{
-                    IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.Lista();
+                    @{
+                        IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.ListaJogo("Overwatch");
 
-                    IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
+                        IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
 
-                    pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
+                        pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
 
-                    int[] sorteados = new int[10];
+                        int[] sorteados = new int[10];
 
-                    string[] corretas = new string[10];
+                        string[] corretas = new string[10];
 
-                    pratica2.Models.resposta[] resps = new pratica2.Models.resposta[10];
+                        pratica2.Models.resposta[] resps = new pratica2.Models.resposta[10];
 
-                    int i = 0;
+                        int i = 0;
 
-                    foreach (pratica2.Models.pergunta perg in p)
-                    {
-                        pergUsu[i] = perg;
-
-                        i++;
-
-                        if (i > 49)
+                        foreach (pratica2.Models.pergunta perg in p)
                         {
-                            break;
+                            pergUsu[i] = perg;
+
+                            i++;
+
+                            if (i > 49)
+                            {
+                                break;
+                            }
+                        }
+
+                        Random sorteio = new Random();
+
+                        int qts = 0;
+
+                        while (qts < 10)
+                        {
+                            int sorteado = sorteio.Next(50);
+
+                            if (!sorteados.Contains(sorteado))
+                            {
+
+                                sorteados[qts] = sorteado;
+
+                                qts++;
+
+                                pratica2.Models.pergunta perg = pergUsu[sorteado];
+
+                                pratica2.Models.resposta resp = new pratica2.Models.resposta();
+
+                                resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
+
+                                resps[qts - 1] = resp;
+
+                                corretas[qts - 1] = resp.Correta;
+
+                                <p>@qts  - @perg.Texto</p>
+
+                                <input type="radio" id="A_@(qts - 1)" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
+                                <input type="radio" id="B_@(qts - 1)" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
+                                <input type="radio" id="C_@(qts - 1)" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
+                                <input type="radio" id="D_@(qts - 1)" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+                            }
                         }
                     }
 
-                    Random sorteio = new Random();
+                    </div>
+                    <div class="modal-footer">
+                        <div id="perguntaBtn">
+                            <button class="waves-effect waves-light btn modal-close" type="submit" onclick="somar()" id="btnFimLogin">Responder</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
-                    int qts = 0;
+            <form method="post" action="/Jogar/Pontuar?pontos=@pontosA">
 
-                    while (qts < 10)
-                    {
-                        int sorteado = sorteio.Next(24);
+                <div id="testeR6" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                        <h4>Pergunta</h4>
 
-                        if (!sorteados.Contains(sorteado))
+                    @*@{
+                        IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
+
+                        IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
+
+                        pratica2.Models.pergunta[] pergUsuB = new pratica2.Models.pergunta[50];
+
+                        int[] sorteadosB = new int[10];
+
+                        string[] corretasB = new string[10];
+
+                        pratica2.Models.resposta[] respsB = new pratica2.Models.resposta[10];
+
+                        int iB = 0;
+
+                        foreach (pratica2.Models.pergunta perg in p)
                         {
+                            pergUsuB[iB] = perg;
 
-                            sorteados[qts] = sorteado;
+                            iB++;
 
-                            qts++;
-
-                            pratica2.Models.pergunta perg = pergUsu[sorteado];
-
-                            pratica2.Models.resposta resp = new pratica2.Models.resposta();
-
-                            resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
-
-                            resps[qts - 1] = resp;
-
-                            corretas[qts - 1] = resp.Correta;
-
-                            <p>@qts  - @perg.Texto</p>
-
-                            <input type="radio" id="A_@(qts - 1)" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
-                            <input type="radio" id="B_@(qts - 1)" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
-                            <input type="radio" id="C_@(qts - 1)" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
-                            <input type="radio" id="D_@(qts - 1)" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+                            if (iB > 49)
+                            {
+                                break;
+                            }
                         }
-                    }
-                }
+
+                        Random sorteioB = new Random();
+
+                        int qtsB = 0;
+
+                        while (qtsB < 10)
+                        {
+                            int sorteadoB = sorteio.Next(24);
+
+                            if (!sorteadosB.Contains(sorteadoB))
+                            {
+
+                                sorteadosB[qtsB] = sorteadoB;
+
+                                qts++;
+
+                                pratica2.Models.pergunta pergB = pergUsu[sorteadoB];
+
+                                pratica2.Models.resposta respB = new pratica2.Models.resposta();
+
+                                respB = pratica2.DAO.respostaDAO.returnReposta(pergB.Id);
+
+                                respsB[qtsB - 1] = respB;
+
+                                corretas[qtsB - 1] = respB.Correta;
+
+                                <p>@qtsB  - @pergB.Texto</p>
+
+                                <input type="radio" id="A_@(qts - 1)" name="@qts  reposta" value="A"> @respB.OpcaoA<br>
+                                <input type="radio" id="B_@(qts - 1)" name="@qts  reposta" value="B"> @respB.OpcaoB<br>
+                                <input type="radio" id="C_@(qts - 1)" name="@qts  reposta" value="C"> @respB.OpcaoC<br>
+                                <input type="radio" id="D_@(qts - 1)" name="@qts  reposta" value="D"> @respB.OpcaoD<br>
+                            }
+                        }
+                    }*@
 
                     </div>
                     <div class="modal-footer">
@@ -167,7 +241,6 @@
                         if (respostas[a] == "A")
                         {
                             soma++;
-                            @{soma++;}
                         }
                     }
 
@@ -176,7 +249,6 @@
                         if (respostas[a] == "B")
                         {
                             soma++;
-                            @{soma++;}
                         }
                     }
 
@@ -185,7 +257,6 @@
                         if (respostas[a] == "C")
                         {
                             soma++;
-                            @{soma++;}
                         }
                     }
 
@@ -194,7 +265,6 @@
                         if (respostas[a] == "D")
                         {
                             soma++;
-                            @{soma++;}
                         }
                     }
                 }

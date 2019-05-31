@@ -15,5 +15,23 @@ namespace pratica2.DAO
                 return contexto.Perguntas.ToList();
             }
         }
+
+        public static IList<pergunta> ListaJogo(string nomeJogo)
+        {
+            using (var contexto = new SiteContext())
+            {
+                IList<pergunta> especifico = new List<pergunta>();
+
+                foreach(pergunta p in Lista())
+                {
+                    if (p.JogoNome == nomeJogo)
+                    {
+                        especifico.Add(p);
+                    }
+                }
+
+                return especifico;
+            }
+        }
     }
 }
