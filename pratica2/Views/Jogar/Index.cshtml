@@ -220,46 +220,35 @@
 
             var soma = 0;
 
-            var respostas;
-
             @{int indice = 0; }
 
             function somar()
             {
-                alert('a');
-
-                for (var b = 0; b < 10; b++)
-                {
-                    alert('b');
-                    alert(respostas[b]);
-                    respostas[b] = @corretas[indice];
-                    @{indice++;}
-                }
-
                 for (var a = 0; a < 10; a++)
                 {
                     if (document.getElementById("A_" + a).checked == true)
                     {
-                        alert('c');
-                        if (respostas[a] == "A")
-                        {
+                        alert('A');
+
+                        if (@corretas[indice] == "A") {
                             soma++;
                         }
                     }
 
                     if (document.getElementById("B_" + a).checked == true)
                     {
-                        alert('c');
-                        if (respostas[a] == "B")
-                        {
+                        alert('B');
+
+                        if (@corretas[indice] == "B") {
                             soma++;
                         }
                     }
 
                     if (document.getElementById("C_" + a).checked == true)
                     {
-                        alert('c');
-                        if (respostas[a] == "C")
+                        alert('C');
+
+                        if (@corretas[indice] == "C")
                         {
                             soma++;
                         }
@@ -267,12 +256,15 @@
 
                     if (document.getElementById("D_" + a).checked == true)
                     {
-                        alert('c');
-                        if (respostas[a] == "D")
+                        alert('D');
+
+                        if (@corretas[indice] == "D")
                         {
                             soma++;
                         }
                     }
+
+                    @{indice++;}
                 }
 
                 $.post("/Jogar/Pontuar", { soma }, null);
