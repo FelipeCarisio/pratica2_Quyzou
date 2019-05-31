@@ -59,11 +59,11 @@
             <p id="tituloInfo">QUIZ</p>
             <p id="subTituloJogar">Selecione um dos jogos ao lado</p>
 
-            <form method="post" action="/Jogar/Pontuar?pontos=@soma">
+            <form method="post">
 
                 <div id="testeOver" class="modal modal-fixed-footer">
                     <div class="modal-content">
-                        <h4>Pergunta</h4>
+                        <h4>Perguntas Overwatch</h4>
 
                     @{
                         IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.ListaJogo("Overwatch");
@@ -102,10 +102,7 @@
 
                             if (!sorteados.Contains(sorteado))
                             {
-
-                                sorteados[qts] = sorteado;
-
-                                qts++;
+                                sorteados[qts] = sorteado;                              
 
                                 pratica2.Models.pergunta perg = pergUsu[sorteado];
 
@@ -113,16 +110,18 @@
 
                                 resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
 
-                                resps[qts - 1] = resp;
+                                resps[qts ] = resp;
 
-                                corretas[qts - 1] = resp.Correta;
+                                corretas[qts] = resp.Correta;
 
-                                <p>@qts  - @perg.Texto</p>
+                                <p>@(qts+1)  - @perg.Texto</p>
 
-                                <input type="radio" id="A_@(qts - 1)" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
-                                <input type="radio" id="B_@(qts - 1)" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
-                                <input type="radio" id="C_@(qts - 1)" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
-                                <input type="radio" id="D_@(qts - 1)" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+                                <input type="radio" id="A_@qts" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
+                                <input type="radio" id="B_@qts" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
+                                <input type="radio" id="C_@qts" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
+                                <input type="radio" id="D_@qts" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+
+                                qts++;
                             }
                         }
                     }
@@ -130,7 +129,7 @@
                     </div>
                     <div class="modal-footer">
                         <div id="perguntaBtn">
-                            <button class="waves-effect waves-light btn modal-close" type="submit" onclick="somar()" id="btnFimLogin">Responder</button>
+                            <button class="waves-effect waves-light btn modal-close" onclick="somar()" id="btnFimLogin">Responder</button>
                         </div>
                     </div>
                 </div>
@@ -140,74 +139,73 @@
 
                 <div id="testeR6" class="modal modal-fixed-footer">
                     <div class="modal-content">
-                        <h4>Pergunta</h4>
+                        <h4>Perguntas Rainbow Six</h4>
 
                     @*@{
-                        IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
+                    IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
 
-                        IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
+                    IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
 
-                        pratica2.Models.pergunta[] pergUsuB = new pratica2.Models.pergunta[50];
+                    pratica2.Models.pergunta[] pergUsuB = new pratica2.Models.pergunta[50];
 
-                        int[] sorteadosB = new int[10];
+                    int[] sorteadosB = new int[10];
 
-                        string[] corretasB = new string[10];
+                    string[] corretasB = new string[10];
 
-                        pratica2.Models.resposta[] respsB = new pratica2.Models.resposta[10];
+                    pratica2.Models.resposta[] respsB = new pratica2.Models.resposta[10];
 
-                        int iB = 0;
+                    int iB = 0;
 
-                        foreach (pratica2.Models.pergunta perg in p)
+                    foreach (pratica2.Models.pergunta perg in p)
+                    {
+                        pergUsuB[iB] = perg;
+
+                        iB++;
+
+                        if (iB > 49)
                         {
-                            pergUsuB[iB] = perg;
-
-                            iB++;
-
-                            if (iB > 49)
-                            {
-                                break;
-                            }
+                            break;
                         }
+                    }
 
-                        Random sorteioB = new Random();
+                    Random sorteioB = new Random();
 
-                        int qtsB = 0;
+                    int qtsB = 0;
 
-                        while (qtsB < 10)
+                    while (qtsB < 10)
+                    {
+                        int sorteadoB = sorteio.Next(24);
+
+                        if (!sorteadosB.Contains(sorteadoB))
                         {
-                            int sorteadoB = sorteio.Next(24);
+                            sorteadosB[qtsB] = sorteadoB;
 
-                            if (!sorteadosB.Contains(sorteadoB))
-                            {
+                            pratica2.Models.pergunta pergB = pergUsu[sorteadoB];
 
-                                sorteadosB[qtsB] = sorteadoB;
+                            pratica2.Models.resposta respB = new pratica2.Models.resposta();
 
-                                qts++;
+                            respB = pratica2.DAO.respostaDAO.returnReposta(pergB.Id);
 
-                                pratica2.Models.pergunta pergB = pergUsu[sorteadoB];
+                            respsB[qtsB] = respB;
 
-                                pratica2.Models.resposta respB = new pratica2.Models.resposta();
+                            corretasB[qtsB] = respB.Correta;
 
-                                respB = pratica2.DAO.respostaDAO.returnReposta(pergB.Id);
+                            <p>@(qtsB + 1)  - @pergB.Texto</p>
 
-                                respsB[qtsB - 1] = respB;
+                            <input type="radio" id="A_@qtsB" name="@qtsB  reposta" value="A"> @respB.OpcaoA<br>
+                            <input type="radio" id="B_@qtsB" name="@qtsB  reposta" value="B"> @respB.OpcaoB<br>
+                            <input type="radio" id="C_@qtsB" name="@qtsB  reposta" value="C"> @respB.OpcaoC<br>
+                            <input type="radio" id="D_@qtsB" name="@qtsB  reposta" value="D"> @respB.OpcaoD<br>
 
-                                corretas[qtsB - 1] = respB.Correta;
-
-                                <p>@qtsB  - @pergB.Texto</p>
-
-                                <input type="radio" id="A_@(qts - 1)" name="@qts  reposta" value="A"> @respB.OpcaoA<br>
-                                <input type="radio" id="B_@(qts - 1)" name="@qts  reposta" value="B"> @respB.OpcaoB<br>
-                                <input type="radio" id="C_@(qts - 1)" name="@qts  reposta" value="C"> @respB.OpcaoC<br>
-                                <input type="radio" id="D_@(qts - 1)" name="@qts  reposta" value="D"> @respB.OpcaoD<br>
-                            }
+                            qts++;
                         }
-                    }*@
+                    }
+                }*@
 
                     </div>
                     <div class="modal-footer">
                         <div id="perguntaBtn">
-                            <button class="waves-effect waves-light btn modal-close" type="submit" onclick="somar()" id="btnFimLogin">Responder</button>
+                            <button class="waves-effect waves-light btn modal-close" onclick="somar2()" id="btnFimLogin">Responder</button>
                         </div>
                     </div>
                 </div>
@@ -228,9 +226,62 @@
 
             function somar()
             {
+                alert('a');
+
                 for (var b = 0; b < 10; b++)
                 {
+                    alert('b');
                     respostas[b] = @corretas[indice];
+                    @{indice++;}
+                }
+
+                for (var a = 0; a < 10; a++)
+                {
+                    if (document.getElementById("A_" + a).checked == true)
+                    {
+                        alert('c');
+                        if (respostas[a] == "A")
+                        {
+                            soma++;
+                        }
+                    }
+
+                    if (document.getElementById("B_" + a).checked == true)
+                    {
+                        alert('c');
+                        if (respostas[a] == "B")
+                        {
+                            soma++;
+                        }
+                    }
+
+                    if (document.getElementById("C_" + a).checked == true)
+                    {
+                        alert('c');
+                        if (respostas[a] == "C")
+                        {
+                            soma++;
+                        }
+                    }
+
+                    if (document.getElementById("D_" + a).checked == true)
+                    {
+                        alert('c');
+                        if (respostas[a] == "D")
+                        {
+                            soma++;
+                        }
+                    }
+                }
+
+                $.post("/Jogar/Pontuar", { soma }, null);
+            }
+
+            @*function somar2()
+            {
+                for (var b = 0; b < 10; b++)
+                {
+                    respostas[b] = @corretasB[indice];
                     @{indice++;}
                 }
 
@@ -270,8 +321,7 @@
                 }
 
                 $.post("/Jogar/Pontuar", { soma }, null);
-            }
-
+            }*@
         </script>
     }
     else
