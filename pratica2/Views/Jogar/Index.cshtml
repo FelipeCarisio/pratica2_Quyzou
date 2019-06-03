@@ -218,14 +218,13 @@
             $('.modal').modal();
             });
 
-
-            var soma = 0;
-
-            @{int indice = 0;}
-
             function somar()
             {
+                @{int indice = 0;}
+
                 alert('funcao');
+
+                var soma = 0;
 
                 for (var a = 0; a < 10; a++)
                 {
@@ -233,14 +232,18 @@
                     {
                         alert('A');
 
-                        if (@corretas[indice].ToString() == "A") {
+                        if (@corretas[indice] + "" == "A")
+                        {
                             alert('acertou');
                             soma++;
                         }
+                        @{indice++;}
                     }
                 }
 
                 alert('fim for1');
+
+                @{indice = 0;}
 
                 for (var i = 0; i < 10; i++)
                 {
@@ -248,31 +251,37 @@
                     {
                         alert('B');
 
-                        if (@corretas[indice].ToString() == "B")
+                        if (@corretas[indice] + "" == "B")
                         {
                             alert('acertou');
                             soma++;
                         }
+                        @{indice++;}
                     }
                 }
 
                 alert('fim for2');
 
+                @{indice = 0;}
+
                 for (var b = 0; b < 10; b++)
-                {               
+                {
                     if (document.getElementById("C_" + b).checked == true)
                     {
                         alert('C');
 
-                        if (@corretas[indice].ToString() == "C")
+                        if (@corretas[indice] + "" == "C")
                         {
                             alert('acertou');
                             soma++;
                         }
+                        @{indice++;}
                     }
                 }
 
                 alert('fim for3');
+
+                @{indice = 0;}
 
                 for (var c = 0; c < 10; c++)
                 {
@@ -280,11 +289,12 @@
                     {
                         alert('D');
 
-                        if (@corretas[indice].ToString() == "D")
+                        if (@corretas[indice] + "" == "D")
                         {
                             alert('acertou');
                             soma++;
                         }
+                        @{indice++;}
                     }
                 }
 

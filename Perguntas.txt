@@ -1,0 +1,303 @@
+Rainbow six siege
+
+1 De onde vem a polícia SAS?
+Reino Unido
+Grã - Bretanha x
+Inglaterra
+Estados Unidos
+
+2 De onde vem a polícia FBI SWAT?
+Estados Unidos x
+Inglaterra
+França
+Grécia
+
+3 De onde vem a polícia GIGN?
+França x
+Grécia 
+Espanha
+Portugal 
+
+4 De onde vem a polícia Spetsnaz?
+Polônia
+Esolvênia
+Rússia x
+Ucrânia 
+
+5 De onde vem a polícia GSG 9?
+Alemanha x
+França
+Espanha 
+Brasil
+
+6 De onde vem a polícia JTF2?
+Noruega 
+Canadá x
+Estados Unidos 
+México
+
+7 De onde vem a polícia Navy SEALs?
+Canadá
+Inglaterra
+Estados Unidos x
+França
+
+8 De onde vem a polícia BOPE?
+Brasil x
+Espanha
+Portugal
+China
+
+9 De onde vem a polícia SAT?
+Japão x
+Coréia do Sul
+China
+Coréia do Norte
+
+10 De onde vem a polícia GEO?
+Argentina
+Chile
+Espanha x
+Portugal
+
+11 De onde vem a polícia SDU?
+Hong Kong x
+China 
+Grã - Bretanha 
+Tailândia 
+
+12 De onde vem a polícia GROM?
+Uncrânia 
+Lituânia
+Eslováquia
+Polônia x
+
+13 De onde vem a polícia 707th SMB?
+Japão 
+Coréia do Norte 
+Coréia do Sul x
+China
+
+14 De onde vem a polícia GIS?
+Itália x
+França
+Espanha
+Grécia
+
+15 De onde vem a polícia GIGR?
+Costa do Marfim
+África do Sul
+Marrocos x
+Lesoto
+
+16 De onde vem a polícia SASR?
+Austrália x
+Nova Zelândia
+Grécia 
+Espanha
+
+17 Qual dessas polícias não foi lançada com o jogo?
+SAS
+GIGN
+JTF2 X
+FBI SWAT
+
+18 Qual dessas polícias não foi lançada no 1º de DLC?
+JTF2 
+Navy SEALs
+BOPE
+GROM x
+
+19 Qual dessas polícias não foi lançada no 2º de DLC?
+GEO
+SDU
+GIS X
+GROM
+
+20 Qual dessas polícias não foi lançada no 3º de DLC?
+SASR x
+GSUTR
+GIS 
+GIGR
+
+21 Quantas polícias ja foram lançadas no ano 4?
+1 x 
+2 
+3 
+4
+
+22 Quantas polícias são lançadas por ano?
+1 
+2
+3
+4 x
+
+23 Quantos operadores vêm em cada polícia base do jogo?
+1
+2
+3
+4 x
+
+24 Quantos operadores vêm em cada polícia de DLC?
+1 
+2 x 
+3
+4
+
+25 Os operadores de DLC normalmente são compostos por:
+Mais atacantes 
+Mesmo número de atacantes e defensores x
+Não tem padrão
+Mais defensores
+
+26 Qual operador tem um drone de choque?
+Lion
+Echo
+Twitch x
+Shock 
+
+27 Qual operador tem um drone de escaneamento?
+Echo
+Lion x
+Scan
+Twitch
+
+28 Qual operador tem um drone de atordoamento?
+Twitch
+Stun
+Lion
+Echo x
+
+29 Qual operador possui uma besta?
+Caveira
+Glaz 
+Capitão x
+Tatcher
+
+30 Qual operador possui granads PEM?
+Teacher
+Tatcher x
+Thatcher 
+Tchather
+
+31 Qual operador não pode danificar paredes fortificadas?
+Thermite
+Maverick
+Sledge x
+Hibana
+
+32 Qual o operador que quebra paredes à distância?
+Thermite
+Ash x
+Sledge
+Echo
+
+33 Qual operador que pode quebrar mais paredes em um round?
+Ash
+Sledge x
+Twitch
+Buck
+
+34 Qual operador que possui uma segunda arma embutida em sua primária?
+Glaz 
+Buck x
+Frost
+Ela
+
+35 Qual operador é um sniper?
+Thermite
+Echo 
+Glaz x
+Hibana
+
+36 Qual operador é o mais pesado entre esses?
+Ash
+Thermite
+Rook x
+Ela
+
+37 Qual operador não possui escudo?
+Montagne
+Fuze
+Alibi x
+Blitz
+
+38 Qual operador pode colocar armadilhas em portas e paredes?
+Kapkan x 
+Blackbeard
+Maestro 
+Blitz
+
+39 Qual operador possui câmeras blindadas que vêm através da fumaça e dão choque?
+Maestro x
+Valkyrie
+Jackal 
+Bandit 
+
+40 Qual operador possui um anti granadas?
+Zofia
+Jager x
+IQ
+Ying
+
+41 Qual operador possui uma marreta?
+Smoke
+Tatcher 
+Sledge x
+Glaz
+
+42 Qual operador possui uma metralhadora fixa?
+Tatchanka x
+Frost 
+Finka
+Rook
+
+43 Qual operador mais forte do jogo?
+Recruta x
+Ash 
+Blitz
+Thermite
+
+44 Qual operador possui granadas tóxicas?
+Rook 
+Smoke x 
+Ela
+Zofia
+
+45 Qual operador pode ver batimentos cardíacos através da parede?
+Visão
+Vision
+Echo
+Pulse x
+
+46 Qual operador pode se curar e curar aliados?
+Ela
+Nomad
+Doc x 
+Mute
+
+47 Qual operador pode parar drones com seu disprutor de sinal?
+Vigil
+Mute x
+Echo
+Jackal
+
+48 Qual operador pode rastrear inimigos pelos seus passos?
+Scan
+Jackal x 
+Jager 
+IQ
+
+49 Qual operador pode detectar gadgets inimgos através da parede?
+IQ x 
+Ying
+Vigil
+Thermite
+
+50 Qual operador pode lhe oferecer a famosa 'marmita'?
+Rook x
+Doc
+Hibana
+Vigil 
+
+
