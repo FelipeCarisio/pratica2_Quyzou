@@ -229,8 +229,6 @@
 
                 for (var a = 0; a < 10; a++)
                 {
-                    alert('for1');
-
                     if (document.getElementById("A_" + a).checked == true)
                     {
                         alert('A');
@@ -242,10 +240,10 @@
                     }
                 }
 
+                alert('fim for1');
+
                 for (var i = 0; i < 10; i++)
                 {
-                    alert('for2');
-
                     if (document.getElementById("B_" + i).checked == true)
                     {
                         alert('B');
@@ -258,10 +256,10 @@
                     }
                 }
 
-                for (var b = 0; b < 10; b++)
-                {
-                    alert('for3');
+                alert('fim for2');
 
+                for (var b = 0; b < 10; b++)
+                {               
                     if (document.getElementById("C_" + b).checked == true)
                     {
                         alert('C');
@@ -274,10 +272,10 @@
                     }
                 }
 
+                alert('fim for3');
+
                 for (var c = 0; c < 10; c++)
                 {
-                    alert('for4');
-
                     if (document.getElementById("D_" + c).checked == true)
                     {
                         alert('D');
@@ -289,6 +287,8 @@
                         }
                     }
                 }
+
+                alert('fim for4');
 
                 $.post("/Jogar/Pontuar", { soma }, null);
             }
