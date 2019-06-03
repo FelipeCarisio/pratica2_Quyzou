@@ -65,66 +65,66 @@
                     <div class="modal-content">
                         <h4>Perguntas Overwatch</h4>
 
-                    @{
-                        IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.ListaJogo("Overwatch");
+                        @{
+                            IList<pratica2.Models.pergunta> p = pratica2.DAO.perguntaDAO.ListaJogo("Overwatch");
 
-                        IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
+                            IList<pratica2.Models.resposta> r = pratica2.DAO.respostaDAO.Lista();
 
-                        pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
+                            pratica2.Models.pergunta[] pergUsu = new pratica2.Models.pergunta[50];
 
-                        int[] sorteados = new int[10];
+                            int[] sorteados = new int[10];
 
-                        string[] corretas = new string[10];
+                            string[] corretas = new string[10];
 
-                        pratica2.Models.resposta[] resps = new pratica2.Models.resposta[10];
+                            pratica2.Models.resposta[] resps = new pratica2.Models.resposta[10];
 
-                        int i = 0;
+                            int i = 0;
 
-                        foreach (pratica2.Models.pergunta perg in p)
-                        {
-                            pergUsu[i] = perg;
-
-                            i++;
-
-                            if (i > 49)
+                            foreach (pratica2.Models.pergunta perg in p)
                             {
-                                break;
+                                pergUsu[i] = perg;
+
+                                i++;
+
+                                if (i > 49)
+                                {
+                                    break;
+                                }
+                            }
+
+                            Random sorteio = new Random();
+
+                            int qts = 0;
+
+                            while (qts < 10)
+                            {
+                                int sorteado = sorteio.Next(50);
+
+                                if (!sorteados.Contains(sorteado))
+                                {
+                                    sorteados[qts] = sorteado;
+
+                                    pratica2.Models.pergunta perg = pergUsu[sorteado];
+
+                                    pratica2.Models.resposta resp = new pratica2.Models.resposta();
+
+                                    resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
+
+                                    resps[qts] = resp;
+
+                                    corretas[qts] = resp.Correta;
+
+                                    <p>@(qts + 1)  - @perg.Texto</p>
+
+                                    <input type="radio" id="A_@qts" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
+                                    <input type="radio" id="B_@qts" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
+                                    <input type="radio" id="C_@qts" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
+                                    <input type="radio" id="D_@qts" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
+
+                                    qts++;
+                                }
                             }
                         }
-
-                        Random sorteio = new Random();
-
-                        int qts = 0;
-
-                        while (qts < 10)
-                        {
-                            int sorteado = sorteio.Next(50);
-
-                            if (!sorteados.Contains(sorteado))
-                            {
-                                sorteados[qts] = sorteado;                              
-
-                                pratica2.Models.pergunta perg = pergUsu[sorteado];
-
-                                pratica2.Models.resposta resp = new pratica2.Models.resposta();
-
-                                resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
-
-                                resps[qts] = resp;
-
-                                corretas[qts] = resp.Correta;
-
-                                <p>@(qts+1)  - @perg.Texto</p>
-
-                                <input type="radio" id="A_@qts" name="@qts  reposta" value="A"> @resp.OpcaoA<br>
-                                <input type="radio" id="B_@qts" name="@qts  reposta" value="B"> @resp.OpcaoB<br>
-                                <input type="radio" id="C_@qts" name="@qts  reposta" value="C"> @resp.OpcaoC<br>
-                                <input type="radio" id="D_@qts" name="@qts  reposta" value="D"> @resp.OpcaoD<br>
-
-                                qts++;
-                            }
-                        }
-                    }
 
                     </div>
                     <div class="modal-footer">
@@ -141,66 +141,66 @@
                     <div class="modal-content">
                         <h4>Perguntas Rainbow Six</h4>
 
-                    @*@{
-                    IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
+                        @*@{
+                                IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
 
-                    IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
+                                IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
 
-                    pratica2.Models.pergunta[] pergUsuB = new pratica2.Models.pergunta[50];
+                                pratica2.Models.pergunta[] pergUsuB = new pratica2.Models.pergunta[50];
 
-                    int[] sorteadosB = new int[10];
+                                int[] sorteadosB = new int[10];
 
-                    string[] corretasB = new string[10];
+                                string[] corretasB = new string[10];
 
-                    pratica2.Models.resposta[] respsB = new pratica2.Models.resposta[10];
+                                pratica2.Models.resposta[] respsB = new pratica2.Models.resposta[10];
 
-                    int iB = 0;
+                                int iB = 0;
 
-                    foreach (pratica2.Models.pergunta perg in p)
-                    {
-                        pergUsuB[iB] = perg;
+                                foreach (pratica2.Models.pergunta perg in p)
+                                {
+                                    pergUsuB[iB] = perg;
 
-                        iB++;
+                                    iB++;
 
-                        if (iB > 49)
-                        {
-                            break;
-                        }
-                    }
+                                    if (iB > 49)
+                                    {
+                                        break;
+                                    }
+                                }
 
-                    Random sorteioB = new Random();
+                                Random sorteioB = new Random();
 
-                    int qtsB = 0;
+                                int qtsB = 0;
 
-                    while (qtsB < 10)
-                    {
-                        int sorteadoB = sorteio.Next(24);
+                                while (qtsB < 10)
+                                {
+                                    int sorteadoB = sorteio.Next(24);
 
-                        if (!sorteadosB.Contains(sorteadoB))
-                        {
-                            sorteadosB[qtsB] = sorteadoB;
+                                    if (!sorteadosB.Contains(sorteadoB))
+                                    {
+                                        sorteadosB[qtsB] = sorteadoB;
 
-                            pratica2.Models.pergunta pergB = pergUsu[sorteadoB];
+                                        pratica2.Models.pergunta pergB = pergUsu[sorteadoB];
 
-                            pratica2.Models.resposta respB = new pratica2.Models.resposta();
+                                        pratica2.Models.resposta respB = new pratica2.Models.resposta();
 
-                            respB = pratica2.DAO.respostaDAO.returnReposta(pergB.Id);
+                                        respB = pratica2.DAO.respostaDAO.returnReposta(pergB.Id);
 
-                            respsB[qtsB] = respB;
+                                        respsB[qtsB] = respB;
 
-                            corretasB[qtsB] = respB.Correta;
+                                        corretasB[qtsB] = respB.Correta;
 
-                            <p>@(qtsB + 1)  - @pergB.Texto</p>
+                                        <p>@(qtsB + 1)  - @pergB.Texto</p>
 
-                            <input type="radio" id="A_@qtsB" name="@qtsB  reposta" value="A"> @respB.OpcaoA<br>
-                            <input type="radio" id="B_@qtsB" name="@qtsB  reposta" value="B"> @respB.OpcaoB<br>
-                            <input type="radio" id="C_@qtsB" name="@qtsB  reposta" value="C"> @respB.OpcaoC<br>
-                            <input type="radio" id="D_@qtsB" name="@qtsB  reposta" value="D"> @respB.OpcaoD<br>
+                                        <input type="radio" id="A_@qtsB" name="@qtsB  reposta" value="A"> @respB.OpcaoA<br>
+                                        <input type="radio" id="B_@qtsB" name="@qtsB  reposta" value="B"> @respB.OpcaoB<br>
+                                        <input type="radio" id="C_@qtsB" name="@qtsB  reposta" value="C"> @respB.OpcaoC<br>
+                                        <input type="radio" id="D_@qtsB" name="@qtsB  reposta" value="D"> @respB.OpcaoD<br>
 
-                            qts++;
-                        }
-                    }
-                }*@
+                                        qts++;
+                                    }
+                                }
+                            }*@
 
                     </div>
                     <div class="modal-footer">
@@ -221,7 +221,7 @@
 
             var soma = 0;
 
-            var respostas = [@corretas[0], @corretas[1], @corretas[2], @corretas[3], @corretas[4], @corretas[5], @corretas[6], @corretas[7], @corretas[8], @corretas[9]];
+            @{int indice = 0;}
 
             function somar()
             {
@@ -229,44 +229,62 @@
 
                 for (var a = 0; a < 10; a++)
                 {
-                    alert('for');
+                    alert('for1');
 
                     if (document.getElementById("A_" + a).checked == true)
                     {
                         alert('A');
 
-                        if (repostas[a] == "A")
-                        {
+                        if (@corretas[indice].ToString() == "A") {
+                            alert('acertou');
                             soma++;
                         }
                     }
+                }
 
-                    if (document.getElementById("B_" + a).checked == true)
+                for (var i = 0; i < 10; i++)
+                {
+                    alert('for2');
+
+                    if (document.getElementById("B_" + i).checked == true)
                     {
                         alert('B');
 
-                        if (repostas[a] == "B")
+                        if (@corretas[indice].ToString() == "B")
                         {
+                            alert('acertou');
                             soma++;
                         }
                     }
+                }
 
-                    if (document.getElementById("C_" + a).checked == true)
+                for (var b = 0; b < 10; b++)
+                {
+                    alert('for3');
+
+                    if (document.getElementById("C_" + b).checked == true)
                     {
                         alert('C');
 
-                        if (repostas[a] == "C")
+                        if (@corretas[indice].ToString() == "C")
                         {
+                            alert('acertou');
                             soma++;
                         }
                     }
+                }
 
-                    if (document.getElementById("D_" + a).checked == true)
+                for (var c = 0; c < 10; c++)
+                {
+                    alert('for4');
+
+                    if (document.getElementById("D_" + c).checked == true)
                     {
                         alert('D');
 
-                        if (repostas[a] == "D")
+                        if (@corretas[indice].ToString() == "D")
                         {
+                            alert('acertou');
                             soma++;
                         }
                     }
