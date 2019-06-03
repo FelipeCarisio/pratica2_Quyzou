@@ -222,17 +222,17 @@
             {
                 @{int indice = 0;}
 
-                alert('funcao');
-
                 var soma = 0;
 
                 for (var a = 0; a < 10; a++)
                 {
                     if (document.getElementById("A_" + a).checked == true)
                     {
-                        alert('A');
+                        var respostas = '';
 
-                        if (@corretas[indice] + "" == "A")
+                        respostas = `@corretas[indice]`;
+
+                        if (respostas == 'A')
                         {
                             alert('acertou');
                             soma++;
@@ -240,8 +240,6 @@
                         @{indice++;}
                     }
                 }
-
-                alert('fim for1');
 
                 @{indice = 0;}
 
@@ -249,9 +247,11 @@
                 {
                     if (document.getElementById("B_" + i).checked == true)
                     {
-                        alert('B');
+                        var respostas = '';
 
-                        if (@corretas[indice] + "" == "B")
+                        respostas =  `@corretas[indice]`;
+
+                        if (respostas == 'B')
                         {
                             alert('acertou');
                             soma++;
@@ -259,8 +259,6 @@
                         @{indice++;}
                     }
                 }
-
-                alert('fim for2');
 
                 @{indice = 0;}
 
@@ -268,9 +266,11 @@
                 {
                     if (document.getElementById("C_" + b).checked == true)
                     {
-                        alert('C');
+                        var respostas = '';
 
-                        if (@corretas[indice] + "" == "C")
+                        respostas =  `@corretas[indice]`;
+
+                        if (respostas == 'C')
                         {
                             alert('acertou');
                             soma++;
@@ -278,18 +278,18 @@
                         @{indice++;}
                     }
                 }
-
-                alert('fim for3');
 
                 @{indice = 0;}
 
                 for (var c = 0; c < 10; c++)
                 {
                     if (document.getElementById("D_" + c).checked == true)
-                    {
-                        alert('D');
+                    {                       
+                        var respostas = '';
 
-                        if (@corretas[indice] + "" == "D")
+                        respostas =  `@corretas[indice]`;
+
+                        if (respostas == 'D')
                         {
                             alert('acertou');
                             soma++;
@@ -298,7 +298,7 @@
                     }
                 }
 
-                alert('fim for4');
+                alert(soma);
 
                 $.post("/Jogar/Pontuar", { soma }, null);
             }
@@ -349,7 +349,7 @@
                 $.post("/Jogar/Pontuar", { soma }, null);
             }*@
         </script>
-    }
+        }
     else
     {
         <center>
