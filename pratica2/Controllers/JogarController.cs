@@ -1,4 +1,6 @@
-﻿using System;
+﻿using pratica2.DAO;
+using pratica2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,6 +30,12 @@ namespace pratica2.Controllers
             pratica2.DAO.usuarioDAO.Alterar(usu);
 
             return RedirectToAction("Index", "Login");
+        }
+
+        public JsonResult ListaRespostas(int id)
+        {
+            IList<resposta> lista = respostaDAO.Lista();
+            return Json(lista);
         }
     }
 }

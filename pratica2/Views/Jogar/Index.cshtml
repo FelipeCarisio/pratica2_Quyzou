@@ -110,7 +110,7 @@
 
                                 resp = pratica2.DAO.respostaDAO.returnReposta(perg.Id);
 
-                                resps[qts ] = resp;
+                                resps[qts] = resp;
 
                                 corretas[qts] = resp.Correta;
 
@@ -218,19 +218,25 @@
             $('.modal').modal();
             });
 
+
             var soma = 0;
 
-            @{int indice = 0; }
+            var respostas = [@corretas[0], @corretas[1], @corretas[2], @corretas[3], @corretas[4], @corretas[5], @corretas[6], @corretas[7], @corretas[8], @corretas[9]];
 
             function somar()
             {
+                alert('funcao');
+
                 for (var a = 0; a < 10; a++)
                 {
+                    alert('for');
+
                     if (document.getElementById("A_" + a).checked == true)
                     {
                         alert('A');
 
-                        if (@corretas[indice] == "A") {
+                        if (repostas[a] == "A")
+                        {
                             soma++;
                         }
                     }
@@ -239,7 +245,8 @@
                     {
                         alert('B');
 
-                        if (@corretas[indice] == "B") {
+                        if (repostas[a] == "B")
+                        {
                             soma++;
                         }
                     }
@@ -248,7 +255,7 @@
                     {
                         alert('C');
 
-                        if (@corretas[indice] == "C")
+                        if (repostas[a] == "C")
                         {
                             soma++;
                         }
@@ -258,13 +265,11 @@
                     {
                         alert('D');
 
-                        if (@corretas[indice] == "D")
+                        if (repostas[a] == "D")
                         {
                             soma++;
                         }
                     }
-
-                    @{indice++;}
                 }
 
                 $.post("/Jogar/Pontuar", { soma }, null);
