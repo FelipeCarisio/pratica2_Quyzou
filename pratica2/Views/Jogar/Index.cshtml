@@ -137,7 +137,7 @@
                     <div class="modal-content">
                         <h4>Perguntas Rainbow Six</h4>
 
-                        @{
+                        @*{
                                 IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
 
                                 IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
@@ -158,7 +158,7 @@
 
                                     iB++;
 
-                                    if (iB > 49)
+                                    if (iB > 3)
                                     {
                                         break;
                                     }
@@ -168,9 +168,9 @@
 
                                 int qtsB = 0;
 
-                                while (qtsB < 10)
+                                while (qtsB < 4)
                                 {
-                                    int sorteadoB = sorteio.Next(24);
+                                    int sorteadoB = sorteio.Next(4);
 
                                     if (!sorteadosB.Contains(sorteadoB))
                                     {
@@ -196,7 +196,7 @@
                                         qts++;
                                     }
                                 }
-                            }
+                            }*@
 
                     </div>
                     <div class="modal-footer">
@@ -206,12 +206,13 @@
                     </div>
                 </div>
             </form>
+
         </div>
 
         <script type="text/javascript">
 
             var respostasJs = new Array(`@corretas[0]`, `@corretas[1]`, `@corretas[2]`, `@corretas[3]`, `@corretas[4]`, `@corretas[5]`, `@corretas[6]`, `@corretas[7]`, `@corretas[8]`, `@corretas[9]`);
-            var respostasJsB = new Array(`@corretasB[0]`, `@corretasB[1]`, `@corretasB[2]`, `@corretasB[3]`, `@corretasB[4]`, `@corretasB[5]`, `@corretasB[6]`, `@corretasB[7]`, `@corretasB[8]`, `@corretasB[9]`);
+            @*var respostasJsB = new Array(`@corretasB[0]`, `@corretasB[1]`, `@corretasB[2]`, `@corretasB[3]`, `@corretasB[4]`, `@corretasB[5]`, `@corretasB[6]`, `@corretasB[7]`, `@corretasB[8]`, `@corretasB[9]`);*@
 
             $(document).ready(function () {
             $('.modal').modal();
@@ -289,52 +290,65 @@
                 $.post("~/Jogar/Pontuar", { soma }, null);
             }
 
-            function somar2() {
+            function somar2()
+            {
                 var soma = 0;
 
-                for (var a = 0; a < 10; a++) {
-                    if (document.getElementById("A_" + a).checked == true) {
+                for (var a = 0; a < 10; a++)
+                {
+                    if (document.getElementById("A_" + a).checked == true)
+                    {
                         var respostas = '';
 
-                        respostas = respostasJs[a];
+                        respostas = respostasJsB[a];
 
-                        if (respostas == 'A') {
+                        if (respostas == 'A')
+                        {
                             soma++;
                         }
                     }
                 }
 
-                for (var i = 0; i < 10; i++) {
-                    if (document.getElementById("B_" + i).checked == true) {
+                for (var i = 0; i < 10; i++)
+                {
+                    if (document.getElementById("B_" + i).checked == true)
+                    {
                         var respostas = '';
 
-                        respostas = respostasJs[i];
+                        respostas = respostasJsB[i];
 
-                        if (respostas == 'B') {
+                        if (respostas == 'B')
+                        {
                             soma++;
                         }
                     }
                 }
 
-                for (var b = 0; b < 10; b++) {
-                    if (document.getElementById("C_" + b).checked == true) {
+                for (var b = 0; b < 10; b++)
+                {
+                    if (document.getElementById("C_" + b).checked == true)
+                    {
                         var respostas = '';
 
-                        respostas = respostasJs[b];
+                        respostas = respostasJsB[b];
 
-                        if (respostas == 'C') {
+                        if (respostas == 'C')
+                        {
                             soma++;
                         }
                     }
                 }
 
-                for (var c = 0; c < 10; c++) {
-                    if (document.getElementById("D_" + c).checked == true) {
+                for (var c = 0; c < 10; c++)
+                {
+                    if (document.getElementById("D_" + c).checked == true)
+                    {
                         var respostas = '';
 
-                        respostas = respostasJs[c];
+                        respostas = respostasJsB[c];
 
-                        if (respostas == 'D') {
+                        if (respostas == 'D')
+                        {
                             soma++;
                         }
                     }
@@ -349,7 +363,7 @@
             }
 
         </script>
-        }
+    }
     else
     {
         <center>
