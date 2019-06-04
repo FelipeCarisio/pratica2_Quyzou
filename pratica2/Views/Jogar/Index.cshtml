@@ -1,10 +1,6 @@
 ﻿@{
     if (Session["usuarioLogado"] != null)
     {
-        Random pontos = new Random();
-
-        int pontosA = pontos.Next(10);
-
         <div id="containerCardJogar">
 
             <p id="tituloCard">Jogos</p>
@@ -135,7 +131,7 @@
                 </div>
             </form>
 
-            <form method="post" action="/Jogar/Pontuar?pontos=@pontosA">
+            <form method="post">
 
                 <div id="testeR6" class="modal modal-fixed-footer">
                     <div class="modal-content">
@@ -214,14 +210,14 @@
 
         <script type="text/javascript">
 
+            var respostasJs = new Array(`@corretas[0]`, `@corretas[1]`, `@corretas[2]`, `@corretas[3]`, `@corretas[4]`, `@corretas[5]`, `@corretas[6]`, `@corretas[7]`, `@corretas[8]`, `@corretas[9]`);
+
             $(document).ready(function () {
             $('.modal').modal();
             });
 
             function somar()
             {
-                @{int indice = 0;}
-
                 var soma = 0;
 
                 for (var a = 0; a < 10; a++)
@@ -230,18 +226,14 @@
                     {
                         var respostas = '';
 
-                        respostas = `@corretas[indice]`;
+                        respostas = respostasJs[a];
 
                         if (respostas == 'A')
                         {
-                            alert('acertou');
                             soma++;
                         }
-                        @{indice++;}
                     }
                 }
-
-                @{indice = 0;}
 
                 for (var i = 0; i < 10; i++)
                 {
@@ -249,18 +241,14 @@
                     {
                         var respostas = '';
 
-                        respostas =  `@corretas[indice]`;
+                       respostas = respostasJs[i];
 
                         if (respostas == 'B')
                         {
-                            alert('acertou');
                             soma++;
                         }
-                        @{indice++;}
                     }
                 }
-
-                @{indice = 0;}
 
                 for (var b = 0; b < 10; b++)
                 {
@@ -268,39 +256,36 @@
                     {
                         var respostas = '';
 
-                        respostas =  `@corretas[indice]`;
+                        respostas = respostasJs[b];
 
                         if (respostas == 'C')
                         {
-                            alert('acertou');
                             soma++;
                         }
-                        @{indice++;}
                     }
                 }
-
-                @{indice = 0;}
 
                 for (var c = 0; c < 10; c++)
                 {
                     if (document.getElementById("D_" + c).checked == true)
-                    {                       
+                    {
                         var respostas = '';
 
-                        respostas =  `@corretas[indice]`;
+                        respostas = respostasJs[c];
 
                         if (respostas == 'D')
                         {
-                            alert('acertou');
                             soma++;
                         }
-                        @{indice++;}
                     }
                 }
 
-                alert(soma);
+                if (soma == 1) 
+                    alert('Você acertou ' + soma + ' questão');             
+                else
+                    alert('Você acertou ' + soma + ' questões');
 
-                $.post("/Jogar/Pontuar", { soma }, null);
+                $.post("~/Jogar/Pontuar", { soma }, null);
             }
 
             @*function somar2()
