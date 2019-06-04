@@ -137,7 +137,7 @@
                     <div class="modal-content">
                         <h4>Perguntas Rainbow Six</h4>
 
-                        @*{
+                        @{
                                 IList<pratica2.Models.pergunta> pB = pratica2.DAO.perguntaDAO.ListaJogo("Rainbow six");
 
                                 IList<pratica2.Models.resposta> rB = pratica2.DAO.respostaDAO.Lista();
@@ -152,13 +152,13 @@
 
                                 int iB = 0;
 
-                                foreach (pratica2.Models.pergunta perg in p)
+                                foreach (pratica2.Models.pergunta perg in pB)
                                 {
                                     pergUsuB[iB] = perg;
 
                                     iB++;
 
-                                    if (iB > 3)
+                                    if (iB > 49)
                                     {
                                         break;
                                     }
@@ -168,15 +168,15 @@
 
                                 int qtsB = 0;
 
-                                while (qtsB < 4)
+                                while (qtsB < 10)
                                 {
-                                    int sorteadoB = sorteio.Next(4);
+                                    int sorteadoB = sorteio.Next(50);
 
                                     if (!sorteadosB.Contains(sorteadoB))
                                     {
                                         sorteadosB[qtsB] = sorteadoB;
 
-                                        pratica2.Models.pergunta pergB = pergUsu[sorteadoB];
+                                        pratica2.Models.pergunta pergB = pergUsuB[sorteadoB];
 
                                         pratica2.Models.resposta respB = new pratica2.Models.resposta();
 
@@ -193,10 +193,10 @@
                                         <input type="radio" id="C_B_@qtsB" name="@qtsB  reposta" value="C"> @respB.OpcaoC<br>
                                         <input type="radio" id="D_B_@qtsB" name="@qtsB  reposta" value="D"> @respB.OpcaoD<br>
 
-                                        qts++;
+                                        qtsB++;
                                     }
                                 }
-                            }*@
+                            }
 
                     </div>
                     <div class="modal-footer">
@@ -212,7 +212,7 @@
         <script type="text/javascript">
 
             var respostasJs = new Array(`@corretas[0]`, `@corretas[1]`, `@corretas[2]`, `@corretas[3]`, `@corretas[4]`, `@corretas[5]`, `@corretas[6]`, `@corretas[7]`, `@corretas[8]`, `@corretas[9]`);
-            @*var respostasJsB = new Array(`@corretasB[0]`, `@corretasB[1]`, `@corretasB[2]`, `@corretasB[3]`, `@corretasB[4]`, `@corretasB[5]`, `@corretasB[6]`, `@corretasB[7]`, `@corretasB[8]`, `@corretasB[9]`);*@
+            var respostasJsB = new Array(`@corretasB[0]`, `@corretasB[1]`, `@corretasB[2]`, `@corretasB[3]`, `@corretasB[4]`, `@corretasB[5]`, `@corretasB[6]`, `@corretasB[7]`, `@corretasB[8]`, `@corretasB[9]`);
 
             $(document).ready(function () {
             $('.modal').modal();
@@ -284,7 +284,8 @@
 
                 alert(soma);
 
-                $.post("Jogar/Pontuar", { pontos:soma }, null);
+                $.post("Jogar/Pontuar", { pontos: soma }, null);
+                //[Route("Jogar/Pontuar/{soma}")]
             }
 
             function somar2()
@@ -351,7 +352,10 @@
                     }
                 }
 
+                alert(somaB);
+
                 $.post("~/Jogar/Pontuar", { soma }, null);
+                //[Route("Jogar/Pontuar/{soma}")]
             }
 
         </script>
