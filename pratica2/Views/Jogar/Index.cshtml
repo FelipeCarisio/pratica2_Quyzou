@@ -188,10 +188,10 @@
 
                                         <p>@(qtsB + 1)  - @pergB.Texto</p>
 
-                                        <input type="radio" id="A_@qtsB" name="@qtsB  reposta" value="A"> @respB.OpcaoA<br>
-                                        <input type="radio" id="B_@qtsB" name="@qtsB  reposta" value="B"> @respB.OpcaoB<br>
-                                        <input type="radio" id="C_@qtsB" name="@qtsB  reposta" value="C"> @respB.OpcaoC<br>
-                                        <input type="radio" id="D_@qtsB" name="@qtsB  reposta" value="D"> @respB.OpcaoD<br>
+                                        <input type="radio" id="A_B_@qtsB" name="@qtsB  reposta" value="A"> @respB.OpcaoA<br>
+                                        <input type="radio" id="B_B_@qtsB" name="@qtsB  reposta" value="B"> @respB.OpcaoB<br>
+                                        <input type="radio" id="C_B_@qtsB" name="@qtsB  reposta" value="C"> @respB.OpcaoC<br>
+                                        <input type="radio" id="D_B_@qtsB" name="@qtsB  reposta" value="D"> @respB.OpcaoD<br>
 
                                         qts++;
                                     }
@@ -282,21 +282,18 @@
                     }
                 }
 
-                if (soma == 1)
-                    alert('Você acertou ' + soma + ' questão');
-                else
-                    alert('Você acertou ' + soma + ' questões');
+                alert(soma);
 
-                $.post("~/Jogar/Pontuar", { soma }, null);
+                $.post("Jogar/Pontuar", { pontos:soma }, null);
             }
 
             function somar2()
             {
-                var soma = 0;
+                var somaB = 0;
 
                 for (var a = 0; a < 10; a++)
                 {
-                    if (document.getElementById("A_" + a).checked == true)
+                    if (document.getElementById("A_B_" + a).checked == true)
                     {
                         var respostas = '';
 
@@ -304,14 +301,14 @@
 
                         if (respostas == 'A')
                         {
-                            soma++;
+                            somaB++;
                         }
                     }
                 }
 
                 for (var i = 0; i < 10; i++)
                 {
-                    if (document.getElementById("B_" + i).checked == true)
+                    if (document.getElementById("B_B_" + i).checked == true)
                     {
                         var respostas = '';
 
@@ -319,14 +316,14 @@
 
                         if (respostas == 'B')
                         {
-                            soma++;
+                            somaB++;
                         }
                     }
                 }
 
                 for (var b = 0; b < 10; b++)
                 {
-                    if (document.getElementById("C_" + b).checked == true)
+                    if (document.getElementById("C_B_" + b).checked == true)
                     {
                         var respostas = '';
 
@@ -334,14 +331,14 @@
 
                         if (respostas == 'C')
                         {
-                            soma++;
+                            somaB++;
                         }
                     }
                 }
 
                 for (var c = 0; c < 10; c++)
                 {
-                    if (document.getElementById("D_" + c).checked == true)
+                    if (document.getElementById("D_B_" + c).checked == true)
                     {
                         var respostas = '';
 
@@ -349,15 +346,10 @@
 
                         if (respostas == 'D')
                         {
-                            soma++;
+                            somaB++;
                         }
                     }
                 }
-
-                if (soma == 1)
-                    alert('Você acertou ' + soma + ' questão');
-                else
-                    alert('Você acertou ' + soma + ' questões');
 
                 $.post("~/Jogar/Pontuar", { soma }, null);
             }
