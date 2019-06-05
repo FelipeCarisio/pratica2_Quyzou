@@ -11,6 +11,7 @@ namespace pratica2.Controllers
     public class LoginController : Controller
     {
         // GET: Login
+        [Route("Login/Index")]
         public ActionResult Index()
         {
             ViewBag.Title = "Login";

@@ -282,10 +282,12 @@
                     }
                 }
 
-                alert(soma);
+                if (soma == 1)
+                    alert('Você acertou ' + soma + ' questão.');
+                else
+                    alert('Você acertou ' + soma + ' questões.');
 
-                $.post("Jogar/Pontuar", { pontos: soma }, null);
-                //[Route("Jogar/Pontuar/{soma}")]
+                $.post("Jogar/" + soma);
             }
 
             function somar2()
@@ -352,10 +354,12 @@
                     }
                 }
 
-                alert(somaB);
+                if (somaB == 1)
+                    alert('Você acertou ' + somaB + ' questão.');
+                else
+                    alert('Você acertou ' + somaB + ' questões.');
 
-                $.post("~/Jogar/Pontuar", { soma }, null);
-                //[Route("Jogar/Pontuar/{soma}")]
+                $.post("Jogar/" + somaB);          
             }
 
         </script>
