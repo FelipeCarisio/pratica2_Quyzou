@@ -15,13 +15,26 @@ a:hover{
     height: 27.44em
 }
 
+#containerPareto {
+    height: 670px;
+    position: relative;
+    margin: 10px;
+}
+
+#chartContainer{
+    top: 50px;
+    left: 250px;
+    position: absolute;
+    background-color: lightcyan !important;
+}
+
 #pergunta {
-position: relative;
-left: 220px;
-top: 5px;
-height: 160px;
-width: 600px;
-margin: 1px;
+    position: relative;
+    left: 220px;
+    top: 5px;
+    height: 160px;
+    width: 600px;
+    margin: 1px;
 }
 
 #perguntaBtn {

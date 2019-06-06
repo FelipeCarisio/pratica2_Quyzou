@@ -222,6 +222,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogarController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ParetoController.cs" />
     <Compile Include="Controllers\RankingsController.cs" />
     <Compile Include="Controllers\SobreController.cs" />
     <Compile Include="DAO\perguntaDAO.cs" />
@@ -284,6 +285,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Rankings\Index.cshtml" />
     <Content Include="Views\Sobre\Index.cshtml" />
+    <Content Include="Views\Pareto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
